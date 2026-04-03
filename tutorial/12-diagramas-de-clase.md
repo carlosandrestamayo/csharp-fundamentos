@@ -276,3 +276,428 @@ Relaciones:
 > Un buen diagrama evita muchos errores antes de escribir una sola línea de código.
 
 ---
+
+# 🧩 Diagramas UML Completos + Código en C#
+
+---
+
+# 🔹 1. Asociación
+
+## 📌 Diagrama UML
+
+```
++----------------------+
+|       Curso          |
++----------------------+
+| -Nombre: string      |
++----------------------+
+| +GetNombre(): string |
++----------------------+
+
+        ▲
+        |
+        |
++--------------------------+
+|       Estudiante         |
++--------------------------+
+| -Nombre: string          |
+| -Curso: Curso            |
++--------------------------+
+| +Inscribirse(c: Curso)   |
++--------------------------+
+```
+
+---
+
+## 💻 Código
+
+```csharp
+class Curso
+{
+    public string Nombre { get; set; }
+
+    public string GetNombre()
+    {
+        return Nombre;
+    }
+}
+
+class Estudiante
+{
+    public string Nombre { get; set; }
+    public Curso Curso { get; set; }
+
+    public void Inscribirse(Curso c)
+    {
+        Curso = c;
+    }
+}
+```
+
+---
+
+# 🔹 2. Agregación
+
+## 📌 Diagrama UML
+
+```
++---------------------------+
+|        Jugador            |
++---------------------------+
+| -Nombre: string           |
++---------------------------+
+| +GetNombre(): string      |
++---------------------------+
+
+        ◇
+        |
+        |
++------------------------------+
+|           Equipo             |
++------------------------------+
+| -Jugadores: List<Jugador>    |
++------------------------------+
+| +AgregarJugador(j: Jugador)  |
++------------------------------+
+```
+
+---
+
+## 💻 Código
+
+```csharp
+class Jugador
+{
+    public string Nombre { get; set; }
+
+    public string GetNombre()
+    {
+        return Nombre;
+    }
+}
+
+class Equipo
+{
+    public List<Jugador> Jugadores { get; set; }
+
+    public Equipo()
+    {
+        Jugadores = new List<Jugador>();
+    }
+
+    public void AgregarJugador(Jugador j)
+    {
+        Jugadores.Add(j);
+    }
+}
+```
+
+---
+
+# 🔹 3. Composición
+
+## 📌 Diagrama UML
+
+```
++---------------------------+
+|       Habitacion          |
++---------------------------+
+| -Tipo: string             |
++---------------------------+
+| +GetTipo(): string        |
++---------------------------+
+
+        ◆
+        |
+        |
++-------------------------------+
+|            Casa               |
++-------------------------------+
+| -Habitaciones: List<Habitacion>|
++-------------------------------+
+| +AgregarHabitacion(tipo: string)|
++-------------------------------+
+```
+
+---
+
+## 💻 Código
+
+```csharp
+class Habitacion
+{
+    public string Tipo { get; set; }
+
+    public string GetTipo()
+    {
+        return Tipo;
+    }
+}
+
+class Casa
+{
+    private List<Habitacion> habitaciones;
+
+    public Casa()
+    {
+        habitaciones = new List<Habitacion>();
+    }
+
+    public void AgregarHabitacion(string tipo)
+    {
+        habitaciones.Add(new Habitacion { Tipo = tipo });
+    }
+}
+```
+
+---
+
+# 🔹 4. Herencia
+
+## 📌 Diagrama UML
+
+```
++---------------------------+
+|        Animal             |
++---------------------------+
+| -Nombre: string           |
++---------------------------+
+| +Comer(): void            |
++---------------------------+
+            ▲
+            |
++---------------------------+
+|         Perro             |
++---------------------------+
+|                           |
++---------------------------+
+| +Ladrar(): void           |
++---------------------------+
+```
+
+---
+
+## 💻 Código
+
+```csharp
+class Animal
+{
+    public string Nombre { get; set; }
+
+    public void Comer()
+    {
+        Console.WriteLine("El animal come");
+    }
+}
+
+class Perro : Animal
+{
+    public void Ladrar()
+    {
+        Console.WriteLine("El perro ladra");
+    }
+}
+```
+
+---
+
+# 🔹 5. Dependencia
+
+## 📌 Diagrama UML
+
+```
++---------------------------+
+|        Logger             |
++---------------------------+
+|                           |
++---------------------------+
+| +Log(mensaje: string): void|
++---------------------------+
+
+        <----------
+        (usa)
++-------------------------------+
+|           Servicio            |
++-------------------------------+
+|                               |
++-------------------------------+
+| +Ejecutar(l: Logger): void    |
++-------------------------------+
+```
+
+---
+
+## 💻 Código
+
+```csharp
+class Logger
+{
+    public void Log(string mensaje)
+    {
+        Console.WriteLine(mensaje);
+    }
+}
+
+class Servicio
+{
+    public void Ejecutar(Logger l)
+    {
+        l.Log("Ejecutando servicio");
+    }
+}
+```
+
+---
+
+# 🚀 Ejemplo Integrador (Completo)
+
+## 📌 Diagrama UML
+
+```
++---------------------------+
+|        Persona            |
++---------------------------+
+| -Nombre: string           |
++---------------------------+
+| +GetNombre(): string      |
++---------------------------+
+            ▲
+            |
++---------------------------+
+|       Estudiante          |
++---------------------------+
+| -Curso: Curso             |
++---------------------------+
+| +Inscribirse(c: Curso)    |
++---------------------------+
+
++---------------------------+
+|         Curso             |
++---------------------------+
+| -Nombre: string           |
+| -Estudiantes: List<Estudiante>|
++---------------------------+
+| +AgregarEstudiante(e)     |
++---------------------------+
+
++---------------------------+
+|         Silla             |
++---------------------------+
+| -Numero: int              |
++---------------------------+
+| +GetNumero(): int         |
++---------------------------+
+
+        ◆
+        |
++---------------------------+
+|          Aula             |
++---------------------------+
+| -Sillas: List<Silla>      |
++---------------------------+
+| +CrearSillas(): void      |
++---------------------------+
+
++---------------------------+
+|        Profesor           |
++---------------------------+
+|                           |
++---------------------------+
+| +DictarClase(c: Curso)    |
++---------------------------+
+```
+
+---
+
+## 💻 Código
+
+```csharp
+class Persona
+{
+    public string Nombre { get; set; }
+
+    public string GetNombre()
+    {
+        return Nombre;
+    }
+}
+
+class Estudiante : Persona
+{
+    public Curso Curso { get; set; }
+
+    public void Inscribirse(Curso c)
+    {
+        Curso = c;
+    }
+}
+
+class Curso
+{
+    public string Nombre { get; set; }
+    public List<Estudiante> Estudiantes { get; set; }
+
+    public Curso()
+    {
+        Estudiantes = new List<Estudiante>();
+    }
+
+    public void AgregarEstudiante(Estudiante e)
+    {
+        Estudiantes.Add(e);
+    }
+}
+
+class Silla
+{
+    public int Numero { get; set; }
+
+    public int GetNumero()
+    {
+        return Numero;
+    }
+}
+
+class Aula
+{
+    private List<Silla> sillas;
+
+    public Aula()
+    {
+        sillas = new List<Silla>();
+        CrearSillas();
+    }
+
+    public void CrearSillas()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            sillas.Add(new Silla { Numero = i });
+        }
+    }
+}
+
+class Profesor
+{
+    public void DictarClase(Curso c)
+    {
+        Console.WriteLine("Dictando " + c.Nombre);
+    }
+}
+```
+
+---
+
+# 🎯 Conclusión
+
+- UML completo = atributos + métodos + relaciones  
+- Cada relación tiene un significado distinto  
+- El diagrama debe reflejar exactamente el código  
+
+---
+
+# 💡 Idea final
+
+> Un buen ingeniero no empieza programando, empieza modelando.
+
+---
