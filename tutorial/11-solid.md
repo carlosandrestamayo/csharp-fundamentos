@@ -276,7 +276,7 @@ class Program
 
 
 ### 🧠 Regla de oro (nivel ingeniería)
-👉 Nunca obligues a una clase a implementar algo que no puede hacer
+> 👉 Nunca obligues a una clase a implementar algo que no puede hacer
 
 ### ⚡ Alternativa avanzada (nivel pro)
 Si quieres algo aún más flexible:
@@ -291,7 +291,7 @@ interface IAve{
 
 ### 📌 Definición
 
-Es mejor tener muchas interfaces pequeñas que una grande.
+> Es mejor tener muchas interfaces pequeñas que una grande.
 
 ---
 
