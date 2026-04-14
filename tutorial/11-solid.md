@@ -196,34 +196,95 @@ class Pinguino : Ave
 }
 ```
 
+### 🚨 Problema en el código
+❌ ¿Qué está mal?
+
+👉 Un `Pinguino` **NO puede reemplazar** a un `Ave` que vuela
+👉 Estás rompiendo **LSP**
+
+Porque:
+```csharp
+Ave ave = new Pinguino();
+ave.Volar(); // 💥 rompe el sistema
+```
+
+🧠 Idea clave
+    No todas las aves vuelan
+👉 Entonces el problema es de modelado incorrecto
 ---
 
 ### ✅ Solución
 
+### 🔹 1. Clase base correcta
 ```csharp
-class Ave { }
+class Ave
+{
+    public void Comer()
+    {
+        Console.WriteLine("El ave come");
+    }
+}
+```
 
+### 🔹 2. Separar comportamiento (ISP)
+```csharp
 interface IVolador
 {
     void Volar();
 }
-
+```
+### 🔹 3. Aves que vuelan
+```csharp
 class Aguila : Ave, IVolador
 {
-    public void Volar() { }
+    public void Volar()
+    {
+        Console.WriteLine("El águila vuela");
+    }
 }
-
+```
+### 🔹 4. Aves que NO vuelan
+```csharp
 class Pinguino : Ave
 {
+    public void Nadar()
+    {
+        Console.WriteLine("El pingüino nada");
+    }
 }
 ```
 
----
+### 🚀 Uso correcto
+```csharp
+class Program
+{
+    static void Main(string[] args)
+    {
+        IVolador aveVoladora = new Aguila();
+        aveVoladora.Volar(); // ✔ correcto
 
-### 🧠 Regla
+        Ave pinguino = new Pinguino();
+        pinguino.Comer(); // ✔ correcto
+    }
+}
+```
 
-> No obligues a una clase a hacer algo que no puede
+### 🔥 Qué lograste
+✔ Cumples LSP → no hay métodos inválidos
+✔ Cumples ISP → interfaces específicas
+✔ Mejor modelo del mundo real
 
+
+### 🧠 Regla de oro (nivel ingeniería)
+👉 Nunca obligues a una clase a implementar algo que no puede hacer
+
+### ⚡ Alternativa avanzada (nivel pro)
+Si quieres algo aún más flexible:
+```csharp
+interface IAve{
+    void Comer();
+}
+```
 ---
 
 ## I — Interface Segregation Principle (ISP)
