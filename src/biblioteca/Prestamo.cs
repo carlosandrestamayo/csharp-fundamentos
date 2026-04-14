@@ -19,7 +19,7 @@ class Prestamo
     {
         Console.WriteLine("Préstamo realizado:");
 
-        // Se muestra el nombre del usuario que tomó el libro
-        Console.WriteLine(this.usuario.Nombre + " tomó prestado el libro");
+        // Se muestra el nombre del usuario que tomó el libro y el libro
+        Console.WriteLine(this.usuario.Nombre + " tomó prestado el libro: " + libroPrestado);
     }
 }
