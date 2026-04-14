@@ -136,7 +136,7 @@ class Resta : IOperacion
     public double Calcular() => 2 - 1;
 }
 ```
-#### Calculadora desacoplada
+### Clase Calculadora desacoplada
 
 ```csharp
 class Calculadora
@@ -147,6 +147,20 @@ class Calculadora
     }
 }
 ```
+### Uso
+class Program
+{
+    static void Main(string[] args)
+    {
+        var calculadora = new Calculadora();
+
+        double resultado1 = calculadora.Calcular(new Suma());
+        double resultado2 = calculadora.Calcular(new Resta());
+
+        Console.WriteLine(resultado1);
+        Console.WriteLine(resultado2);
+    }
+}
 ---
 
 ### 🧠 Regla
