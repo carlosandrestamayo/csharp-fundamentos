@@ -136,7 +136,7 @@ class Resta : IOperacion
     public double Calcular() => 2 - 1;
 }
 ```
-### Clase Calculadora desacoplada
+### ✅ Clase Calculadora desacoplada
 
 ```csharp
 class Calculadora
@@ -147,7 +147,7 @@ class Calculadora
     }
 }
 ```
-### Uso
+### ✅ Uso
 ```csharp
 class Program
 {
