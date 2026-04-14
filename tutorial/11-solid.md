@@ -208,9 +208,9 @@ Ave ave = new Pinguino();
 ave.Volar(); // 💥 rompe el sistema
 ```
 
-🧠 Idea clave
+### 🧠 Idea clave    
     No todas las aves vuelan
-👉 Entonces el problema es de modelado incorrecto
+    👉 Entonces el problema es de modelado incorrecto
 ---
 
 ### ✅ Solución
@@ -270,9 +270,9 @@ class Program
 ```
 
 ### 🔥 Qué lograste
-✔ Cumples LSP → no hay métodos inválidos
-✔ Cumples ISP → interfaces específicas
-✔ Mejor modelo del mundo real
+- ✔ Cumples LSP → no hay métodos inválidos
+- ✔ Cumples ISP → interfaces específicas
+- ✔ Mejor modelo del mundo real
 
 
 ### 🧠 Regla de oro (nivel ingeniería)
