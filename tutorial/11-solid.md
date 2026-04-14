@@ -148,6 +148,7 @@ class Calculadora
 }
 ```
 ### Uso
+```csharp
 class Program
 {
     static void Main(string[] args)
@@ -161,6 +162,7 @@ class Program
         Console.WriteLine(resultado2);
     }
 }
+```
 ---
 
 ### 🧠 Regla
