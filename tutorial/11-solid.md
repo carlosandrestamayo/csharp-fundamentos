@@ -209,7 +209,7 @@ ave.Volar(); // 💥 rompe el sistema
 ```
 
 ### 🧠 Idea clave    
-    No todas las aves vuelan
+> No todas las aves vuelan
     👉 Entonces el problema es de modelado incorrecto
 ---
 
