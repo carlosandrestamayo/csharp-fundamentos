@@ -488,7 +488,7 @@ void MostrarTotal(double total)
 
 ```csharp
 double total = CalcularTotal(precio, cantidad);
-total = AplicarDescuento(total);
+int total = AplicarDescuento(total);
 MostrarTotal(total);
 ```
 
