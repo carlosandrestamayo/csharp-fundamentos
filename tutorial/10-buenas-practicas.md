@@ -103,6 +103,16 @@ int CalcularTotal(int precio, int cantidad)
 }
 ```
 
+```csharp
+int total1 = CalcularTotal(3000,4);
+int total2 = CalcularTotal(13400,17);
+
+int CalcularTotal(int precio, int cantidad)
+{
+    return precio * cantidad;
+}
+```
+
 ---
 
 ## 📌 Regla
