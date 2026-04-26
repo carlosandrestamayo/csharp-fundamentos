@@ -87,9 +87,49 @@ Formato de almacenamiento:
 
 1. Clonar el repositorio:
 
-git clone https://github.com/tu_usuario/InventarioProductosApp.git
+git clone [https://github.com/tu_usuario/InventarioProductosApp.git](https://github.com/carlosandrestamayo/csharp-fundamentos/tree/main/src/InventarioProductosCategoriaAppWF)
 
 2. Abrir el archivo:
 
-InventarioProductosSolution.sln
+📋 InventarioProductosSolution.sln
+
+
+3. Ejecutar en Visual Studio (F5)
+
+---
+
+## 📚 Tecnologías utilizadas
+
+- C#
+- .NET
+- Windows Forms
+- Arquitectura MVC
+- System.IO
+
+---
+
+## 🎓 Objetivo académico
+
+Este proyecto está orientado a estudiantes que desean:
+
+- Comprender la separación de responsabilidades
+- Implementar persistencia sin base de datos
+- Modelar relaciones entre clases
+- Construir aplicaciones de escritorio funcionales
+
+---
+
+## 🔮 Posibles mejoras
+
+- Validación avanzada de datos (TryParse)
+- Eliminación de productos y categorías
+- Uso de DataGridView
+- Migración a base de datos (SQL Server)
+- Versión web (React + FastAPI)
+
+---
+
+## 📌 Nota
+
+Este proyecto puede ser usado como base para prácticas, talleres o evaluaciones en cursos de programación.
 
