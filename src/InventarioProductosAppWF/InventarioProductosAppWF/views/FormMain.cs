@@ -13,7 +13,7 @@ namespace InventarioProductosAppWF.views
     public partial class FormMain : Form
     {
         // 🔹 Instancia del controlador (conecta la vista con la lógica)
-        private ProductoController controller = new ProductoController();
+        private ProductoController productoController = new ProductoController();
 
         // 🏗️ Constructor del formulario
         public FormMain()
@@ -52,15 +52,15 @@ namespace InventarioProductosAppWF.views
             try
             {
                 // Se leen los datos del formulario
-                Producto producto = LeerFormulario();
+                Producto producto = this.LeerFormulario();
 
                 // Se envía el producto al controlador para guardarlo
-                controller.Guardar(producto);
+               productoController.Guardar(producto);
 
                 MessageBox.Show("Producto guardado correctamente");
 
                 // Se limpian los campos
-                Limpiar();
+                this.Limpiar();
             }
             catch (Exception ex)
             {
@@ -75,15 +75,15 @@ namespace InventarioProductosAppWF.views
             try
             {
                 // Se leen los datos del formulario
-                Producto producto = LeerFormulario();
+                Producto producto = this.LeerFormulario();
 
                 // Se envía al controlador para actualizarlo
-                controller.Editar(producto);
+               productoController.Editar(producto);
 
                 MessageBox.Show("Producto actualizado");
 
                 // Se limpian los campos
-                Limpiar();
+                this.Limpiar();
             }
             catch (Exception ex)
             {
@@ -104,7 +104,7 @@ namespace InventarioProductosAppWF.views
             listBoxProductos.Items.Clear();
 
             // Obtiene la lista de productos ordenados desde el controlador
-            var lista = controller.ListarOrdenado();
+            List<Producto> lista = productoController.ListarOrdenado();
 
             // Recorre cada producto y lo muestra en el ListBox
             foreach (Producto producto in lista)
