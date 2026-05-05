@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace WinFormsUniversidad.Views
 {
-    public partial class FormMain : Form
+    public partial class FormProfesor : Form
     {
-        public FormMain()
+        public FormProfesor()
         {
             InitializeComponent();
         }

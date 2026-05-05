@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using WinFormsUniversidad.Data;
 using WinFormsUniversidad.Models;
+using WinFormsUniversidad.Repositorys;
 
 namespace WinFormsUniversidad.Controllers
 {
     internal class ProfesorController
     {
-        private ProfesorRepositorio profesorRepositorio;
+        private ProfesorRepository profesorRepositorio;
 
         public ProfesorController()
         {
-            profesorRepositorio = new ProfesorRepositorio();
+            profesorRepositorio = new ProfesorRepository();
         }
 
         public List<Profesor> ObtenerProfesores()

@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using WinFormsUniversidad.Models;
 
-namespace WinFormsUniversidad.Data
+namespace WinFormsUniversidad.Repositorys
 {
     internal class JsonRepository<T> where T : class
     {
@@ -41,36 +41,15 @@ namespace WinFormsUniversidad.Data
         {
             JsonSerializerOptions opciones = new JsonSerializerOptions
             {
-                WriteIndented = true,
-                IncludeFields = true
+                WriteIndented = true
             };
 
             using (StreamWriter sw = new StreamWriter(filePath))
             {
-                string json = JsonSerializer.Serialize(lista, opciones);
+                string json = JsonSerializer.Serialize<List<T>>(lista, opciones);
                 sw.Write(json);
             }
         }
 
-        //public void Agregar(T obj)
-        //{
-
-        //    List<T> lista = this.Leer();
-
-        //    lista.Add(obj);
-
-        //    JsonSerializerOptions opciones = new JsonSerializerOptions
-        //    {
-        //        WriteIndented = true,
-        //        IncludeFields = true
-        //    };
-
-        //    using (StreamWriter sw = new StreamWriter(filePath))
-        //    {
-        //        string json = JsonSerializer.Serialize(lista, opciones);
-        //        sw.Write(json);
-        //    }
-
-        //}
-    }
+     }
 }

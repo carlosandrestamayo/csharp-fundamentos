@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Text.Json;
 using WinFormsUniversidad.Models;
 
-namespace WinFormsUniversidad.Data
+namespace WinFormsUniversidad.Repositorys
 {
-    internal class EstudianteRepositorio
+    internal class EstudianteRepository
     {
-        public static readonly string filePath = "estudiante.json";
+        private static readonly string folder = "Data";
+        public static readonly string filePath = Path.Combine(folder, "estudiante.json");
 
         public List<Estudiante> Leer()
         {
@@ -27,7 +28,8 @@ namespace WinFormsUniversidad.Data
             }
             else
             {
-                File.Create(filePath).Close();
+                Directory.CreateDirectory(folder);
+                File.WriteAllText(filePath, "[]");
             }
 
             return lista;
@@ -42,7 +44,7 @@ namespace WinFormsUniversidad.Data
 
             using (StreamWriter sw = new StreamWriter(filePath))
             {
-                string json = JsonSerializer.Serialize(lista, opciones);
+                string json = JsonSerializer.Serialize<List<Estudiante>>(lista, opciones);
                 sw.Write(json);
             }
         }

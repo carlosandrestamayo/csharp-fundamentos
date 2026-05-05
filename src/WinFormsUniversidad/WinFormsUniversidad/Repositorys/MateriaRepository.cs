@@ -4,15 +4,17 @@ using System.Text;
 using System.Text.Json;
 using WinFormsUniversidad.Models;
 
-namespace WinFormsUniversidad.Data
+namespace WinFormsUniversidad.Repositorys
 {
-    internal class ProfesorRepositorio
+    internal class MateriaRepository
     {
-        public static readonly string filePath = "profesor.json";
-
-        public List<Profesor> Leer()
+       
+        private static readonly string folder = "Data";
+        public static readonly string filePath = Path.Combine(folder, "materia.json");
+        
+        public List<Materia> Leer()
         {
-            List<Profesor> lista = new List<Profesor>();
+            List<Materia> lista = new List<Materia>();
 
             if (File.Exists(filePath))
             {
@@ -22,48 +24,54 @@ namespace WinFormsUniversidad.Data
 
                     if (!string.IsNullOrWhiteSpace(json))
                     {
-                        lista = JsonSerializer.Deserialize<List<Profesor>>(json) ?? lista;
+                        lista = JsonSerializer.Deserialize<List<Materia>>(json) ?? lista;
                     }
                 }
             }
             else
             {
-                File.Create(filePath).Close();
+                Directory.CreateDirectory(folder);
+                File.WriteAllText(filePath, "[]");
             }
 
             return lista;
         }
 
-        private void Guardar(List<Profesor> lista)
+        private void Guardar(List<Materia> lista)
         {
+            // Opciones de serialización
             JsonSerializerOptions opciones = new JsonSerializerOptions
             {
-                WriteIndented = true
+                WriteIndented = true // Hace el JSON más legible (formato bonito)
             };
 
             using (StreamWriter sw = new StreamWriter(filePath))
             {
                 string json = JsonSerializer.Serialize(lista, opciones);
+
                 sw.Write(json);
             }
         }
 
-        public void Agregar(Profesor profesor)
+        public void Agregar(Materia materia)
         {
-            List<Profesor> lista = this.Leer();
-            lista.Add(profesor);
+            List<Materia> lista = this.Leer();
+
+            lista.Add(materia);
+
             this.Guardar(lista);
         }
 
-        public void Editar(Profesor nuevoProfesor, string id)
+        public void Editar(Materia nuevaMateria, string codigo)
         {
-            List<Profesor> lista = Leer();
+            List<Materia> lista = Leer();
 
-            int index = lista.FindIndex(p => p.id == id);
+            int index = lista.FindIndex(m => m.codigo == codigo);
 
             if (index != -1)
             {
-                lista[index] = nuevoProfesor;
+                lista[index] = nuevaMateria;
+
                 this.Guardar(lista);
             }
         }

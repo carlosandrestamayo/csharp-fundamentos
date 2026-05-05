@@ -1,6 +1,6 @@
 ﻿namespace WinFormsUniversidad.Views
 {
-    partial class FormMain
+    partial class FormMateria
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             SuspendLayout();
             // 
-            // FormMain
+            // FormMateria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1212, 546);
-            Name = "FormMain";
-            Text = "FormMain";
+            ClientSize = new Size(1180, 450);
+            Name = "FormMateria";
+            Text = "FormMateria";
             ResumeLayout(false);
         }
 

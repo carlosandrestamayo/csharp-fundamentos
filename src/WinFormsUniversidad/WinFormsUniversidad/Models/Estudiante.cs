@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace WinFormsUniversidad.Models
 {
@@ -8,11 +9,7 @@ namespace WinFormsUniversidad.Models
     {
         public List<Materia> listaMaterias { get; set; }
 
-        public Estudiante() : base("", "", "")
-        { 
-            this.listaMaterias = new List<Materia>();
-        }
-
+        [JsonConstructor]
         public Estudiante(string id, string nombre, string telefono, List<Materia> listaMaterias): base(id, nombre, telefono)
         {
             this.listaMaterias = listaMaterias;
