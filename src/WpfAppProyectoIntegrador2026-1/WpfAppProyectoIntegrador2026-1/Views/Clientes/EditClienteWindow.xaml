@@ -88,12 +88,12 @@
                     <Button Content="Cancelar"
                             Width="120"
                             Style="{StaticResource SecondaryButton}"
-                            Click="BtnCancelar_Click"/>
+                            Click="BtnCancel_Click"/>
 
                     <Button Content="Guardar"
                             Width="120"
                             Style="{StaticResource PrimaryButton}"
-                            Click="BtnGuardar_Click"/>
+                            Click="BtnUpdate_Click"/>
 
                 </StackPanel>
 
