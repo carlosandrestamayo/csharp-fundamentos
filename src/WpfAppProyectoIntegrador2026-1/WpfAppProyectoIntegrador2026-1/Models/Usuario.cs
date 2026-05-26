@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace WpfAppProyectoIntegrador2026_1.Models
 {
     public class Usuario : Persona
     {
-        public string Username { get; set; }
+        public string Username { get; set; } = string.Empty;
 
-        public string PasswordHash { get; set; }
+        public string PasswordHash { get; set; } = string.Empty;
 
         public bool Activo { get; set; }
 
         public Rol Rol { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+
+        [JsonConstructor]
         public Usuario(
             Guid id,
             string nombre,
@@ -24,18 +28,21 @@ namespace WpfAppProyectoIntegrador2026_1.Models
             string passwordHash,
             bool activo,
             Rol rol
-        ) : base(
-                id,
-                nombre,
-                identificacion,
-                telefono,
-                correo
-            )
+        ) : base(id,
+                 nombre,
+                 identificacion,
+                 telefono,
+                 correo)
         {
             Username = username;
+
             PasswordHash = passwordHash;
+
             Activo = activo;
+
             Rol = rol;
+
+            CreatedAt = DateTime.Now;
         }
     }
 

@@ -48,7 +48,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
             string texto = txtSearch.Text.ToLower();
 
 
-            var filtrados = clientesList
+            var filtereds = clientesList
                 .Where(c =>
                     c.Nombre.ToLower().Contains(texto)
                     ||
@@ -62,7 +62,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
 
             tableClientes.ItemsSource = null;
 
-            tableClientes.ItemsSource = filtrados;
+            tableClientes.ItemsSource = filtereds;
         }
 
         private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
@@ -102,28 +102,5 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
             }
         }
 
-        // AGREGAR
-        //private void BtnAgregar_Click(object sender, RoutedEventArgs e)
-        //{
-        //    AddClienteWindow addClienteWindow = new AddClienteWindow();
-
-        //    addClienteWindow.ShowDialog();
-
-        //    CargarClientes();
-        //}
-
-        // EDITAR
-        //private void BtnEditar_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Cliente cliente = (sender as Button).DataContext as Cliente;
-
-
-        //    if (cliente != null)
-        //    {
-        //        EditarClienteWindow editarclientewindow = new EditarClienteWindow(cliente);
-        //        editarclientewindow.ShowDialog();
-        //        //    cargarclientes();
-        //    }
-        //}
-    }
+     }
 }

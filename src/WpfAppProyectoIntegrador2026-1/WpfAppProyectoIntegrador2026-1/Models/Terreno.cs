@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WpfAppProyectoIntegrador2026_1.Models
 {
-    class Terreno
+    public class Terreno
     {
         public Guid Id { get; set; }
 

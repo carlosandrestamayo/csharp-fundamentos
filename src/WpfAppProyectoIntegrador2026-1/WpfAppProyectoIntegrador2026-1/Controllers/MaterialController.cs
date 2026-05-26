@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using WpfAppProyectoIntegrador2026_1.Models;
 using WpfAppProyectoIntegrador2026_1.Repositorys;
+using WpfAppProyectoIntegrador2026_1.Validators;
 
 namespace WpfAppProyectoIntegrador2026_1.Controllers
 {
@@ -12,38 +13,53 @@ namespace WpfAppProyectoIntegrador2026_1.Controllers
 
         public MaterialController()
         {
-            materialRepository = new MaterialRepository();
+            materialRepository = new MaterialRepository();     
         }
 
-        // LISTAR
-        public List<Material> ObtenerMateriales()
+        public List<Material> GetAll()
         {
-            return materialRepository.Leer();
+            return materialRepository.GetAll();
         }
 
-        // AGREGAR
-        public void AgregarMaterial(Material material)
+        public string Add(Material material)
         {
-            materialRepository.Agregar(material);
+            //string validationMessage = MaterialValidator.Validate(material);
+
+
+            //if (validationMessage != "")
+            //{
+            //    return validationMessage;
+            //}
+
+            materialRepository.Add(material);
+
+            return "Material added successfully.";
         }
 
-        // EDITAR
-        public void EditarMaterial(Material material)
+        public string Update(Material material)
         {
-            //repository.Editar(cliente, cliente.Id);
+            //string validationMessage = MaterialValidator.Validate(material);
+
+
+            //if (validationMessage != "")
+            //{
+            //    return validationMessage;
+            //}
+
+            materialRepository.Update(material, material.Id);
+
+
+            return "Material updated successfully.";
         }
 
-        // ELIMINAR
-        public void EliminarMaterial(Guid id)
+        public void Delete(Guid id)
         {
-            //repository.Eliminar(id);
+            materialRepository.Delete(id);
         }
 
-        // BUSCAR
-        public Material? BuscarMaterial(Guid id)
+        public Material? Find(Guid id)
         {
-            return null;
-            //return repository.Buscar(id);
+            return materialRepository.Find(id);
         }
     }
 }

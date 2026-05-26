@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace WpfAppProyectoIntegrador2026_1.Models
 {
-    class Material
+    public class Material
     {
         public Guid Id { get; set; }
 

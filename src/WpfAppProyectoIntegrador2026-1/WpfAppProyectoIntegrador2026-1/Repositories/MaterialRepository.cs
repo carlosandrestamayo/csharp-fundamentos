@@ -13,31 +13,36 @@ namespace WpfAppProyectoIntegrador2026_1.Repositorys
 
         JsonRepository<Material> jsonRepository = new JsonRepository<Material>(folder, filePath);
 
-        public List<Material> Leer()
+        public List<Material> GetAll()
         {
-            return jsonRepository.Leer();
+            return jsonRepository.GetAll();
         }
 
 
-        public void Agregar(Material material)
+        public void Add(Material material)
         {
-            List<Material> lista = jsonRepository.Leer();
+            List<Material> lista = jsonRepository.GetAll();
 
             lista.Add(material);
 
-            jsonRepository.Guardar(lista);
+            jsonRepository.Save(lista);
         }
 
-        public void Editar(Material nuevoMaterial, string codigo)
+
+        public void Update(Material newMaterial, Guid id)
         {
-            //jsonRepository.Editar(nuevaMaterial, m => m.codigo == codigo);
-
+            jsonRepository.Update(newMaterial, material => material.Id == id);
         }
 
-        public Material? Buscar(string codigo)
+        public void Delete(Guid id)
         {
-            return null;
-            //return jsonRepository.Buscar(m => m.codigo == codigo);
+            jsonRepository.Delete(material => material.Id == id);
         }
+
+        public Material? Find(Guid id)
+        {
+            return jsonRepository.Find(material => material.Id == id);
+        }
+     
     }
 }

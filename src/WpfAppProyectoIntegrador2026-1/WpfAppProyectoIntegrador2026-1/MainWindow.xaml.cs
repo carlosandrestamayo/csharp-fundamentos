@@ -42,7 +42,7 @@ namespace WpfAppProyectoIntegrador2026_1
             Contenedor.Content = new MaterialesView();
 
             MaterialRepository materialRepository = new MaterialRepository();
-            materialRepository.Leer();
+            //materialRepository.Leer();
         }
 
         private void BtnCotizaciones_Click(object sender, RoutedEventArgs e)

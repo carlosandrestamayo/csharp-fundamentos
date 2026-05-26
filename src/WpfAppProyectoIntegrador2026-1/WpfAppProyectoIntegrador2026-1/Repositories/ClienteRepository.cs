@@ -16,7 +16,7 @@ namespace WpfAppProyectoIntegrador2026_1.Repositorys
 
         public List<Cliente> GetAll()
         {
-            return jsonRepository.GetAll();
+            return jsonRepository.GetAll();    
         }
 
         public void Add(Cliente cliente)

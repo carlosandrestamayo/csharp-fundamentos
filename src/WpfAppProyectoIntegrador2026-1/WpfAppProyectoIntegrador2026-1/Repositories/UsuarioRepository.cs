@@ -13,31 +13,42 @@ namespace WpfAppProyectoIntegrador2026_1.Repositorys
 
         JsonRepository<Usuario> jsonRepository = new JsonRepository<Usuario>(folder, filePath);
 
-        public List<Usuario> Leer()
+        public List<Usuario> GetAll()
         {
-            return jsonRepository.Leer();
+            return jsonRepository.GetAll();   
         }
 
 
-        public void Agregar(Usuario usuario)
+        public void Add(Usuario usuario)
         {
-            List<Usuario> lista = jsonRepository.Leer();
+            List<Usuario> lista = jsonRepository.GetAll();
 
             lista.Add(usuario);
 
-            jsonRepository.Guardar(lista);
+            jsonRepository.Save(lista);
         }
 
-        public void Editar(Usuario nuevoUsuario, string codigo)
+        public void Update(Usuario nuevoUsuario, string codigo)
         {
             //jsonRepository.Editar(nuevaUsuario, m => m.codigo == codigo);
 
         }
 
-        public Usuario? Buscar(string codigo)
+        public Usuario? Find(Guid id)
         {
-            return null;
-            //return jsonRepository.Buscar(m => m.codigo == codigo);
+            return jsonRepository.Find(
+                usuario => usuario.Id == id
+            );
+        }
+
+        
+        public Usuario? FindByUsername(string username)
+        {
+            return jsonRepository.Find(
+                usuario =>
+                    usuario.Username
+                        .ToLower() == username.ToLower()
+            );
         }
     }
 }

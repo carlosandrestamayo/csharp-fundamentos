@@ -66,16 +66,6 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
                 }
             }
         }
-
-
-        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("BtnGuardar_Click");
-        }
-
-        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("BtnCancelar_Click");
-        }
+              
     }
 }

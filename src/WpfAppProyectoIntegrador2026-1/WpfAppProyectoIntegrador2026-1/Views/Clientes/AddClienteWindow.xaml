@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="" Height="500" Width="540"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen"   
         Background="{StaticResource MainBackground}">
 
     <Grid Margin="20">

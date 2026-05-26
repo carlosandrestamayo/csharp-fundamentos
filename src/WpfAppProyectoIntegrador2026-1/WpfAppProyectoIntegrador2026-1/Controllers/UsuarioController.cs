@@ -1,0 +1,74 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using WpfAppProyectoIntegrador2026_1.Models;
+using WpfAppProyectoIntegrador2026_1.Repositorys;
+using WpfAppProyectoIntegrador2026_1.Security;
+
+namespace WpfAppProyectoIntegrador2026_1.Controllers
+{
+    class UsuarioController
+    {
+        private readonly UsuarioRepository usuarioRepository = new UsuarioRepository();
+
+        public string Login(string username,
+                            string password)
+        {
+            Usuario? usuario = usuarioRepository.FindByUsername(username);
+
+
+            // USER NOT FOUND
+            if (usuario == null)
+            {
+                return "User not found.";
+            }
+
+            // USER INACTIVE
+            if (!usuario.Activo)
+            {
+                return "User is inactive.";
+            }
+
+            // INVALID PASSWORD
+            bool validPassword =
+                PasswordHasher.VerifyPassword(
+                    password,
+                    usuario.PasswordHash
+                );
+
+            if (!validPassword)
+            {
+                return "Invalid password.";
+            }
+
+            // SUCCESS
+            return "Login successful.";
+        }
+
+        public string Register(Usuario usuario, string password)
+        {
+            Usuario? existingUser =
+                usuarioRepository.FindByUsername(
+                    usuario.Username
+                );
+
+            if (existingUser != null)
+            {
+                return "Username already exists.";
+            }
+
+            usuario.PasswordHash =
+                PasswordHasher.HashPassword(password);
+
+            usuarioRepository.Add(usuario);
+
+            return "User registered successfully.";
+        }
+
+       
+        public List<Usuario> GetAll()
+        {
+            return usuarioRepository.GetAll();
+        }
+    }
+}

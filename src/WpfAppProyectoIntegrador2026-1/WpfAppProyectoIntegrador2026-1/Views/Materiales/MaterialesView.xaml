@@ -190,25 +190,25 @@
                 <DockPanel Margin="0,0,0,20">
 
                     <!-- BOTÓN AGREGAR -->
-                    <Button Content="Agregar Cliente"
+                    <Button Content="Agregar Material"
                             Width="170"
                             Style="{StaticResource PrimaryButton}"
                             HorizontalAlignment="Right"
-                            Click="BtnAgregar_Click"
+                            Click="BtnAdd_Click"
                             DockPanel.Dock="Right"/>
 
                     <!-- BUSCADOR -->
-                    <TextBox x:Name="txtBuscar"
+                    <TextBox x:Name="txtSearch"
                              Width="320"
                              Style="{StaticResource ModernTextBox}"
                              VerticalContentAlignment="Center"
                              Margin="0,0,10,0"
-                             TextChanged="TxtBuscar_TextChanged"/>
+                             TextChanged="TxtSearch_TextChanged"/>
 
                 </DockPanel>
 
                 <!-- TABLA -->
-                <DataGrid x:Name="tablaMateriales"
+                <DataGrid x:Name="tableMateriales"
                           Grid.Row="1"
                           AutoGenerateColumns="False"
                           CanUserAddRows="False"
@@ -254,7 +254,7 @@
                                     <Button Content="Editar"
                                             Width="85"
                                             Style="{StaticResource EditButton}"
-                                            Click="BtnEditar_Click"/>
+                                            Click="BtnEdit_Click"/>
 
                                 </DataTemplate>
 

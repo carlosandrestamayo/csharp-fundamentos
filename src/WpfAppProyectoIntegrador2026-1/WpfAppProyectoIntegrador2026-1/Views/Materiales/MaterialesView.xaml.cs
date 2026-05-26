@@ -13,6 +13,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfAppProyectoIntegrador2026_1.Controllers;
 using WpfAppProyectoIntegrador2026_1.Models;
+using WpfAppProyectoIntegrador2026_1.Views.Materiales;
+using Material = WpfAppProyectoIntegrador2026_1.Models.Material;
 
 
 namespace WpfAppProyectoIntegrador2026_1.Views
@@ -23,38 +25,80 @@ namespace WpfAppProyectoIntegrador2026_1.Views
     public partial class MaterialesView : UserControl
     {
         MaterialController materialController = new MaterialController();
-        private List<Models.Material> listaMateriales = new List<Models.Material>();
+        
+        private List<Models.Material> materialesList = new List<Models.Material>();
 
        
         public MaterialesView()
         {
             InitializeComponent();
 
-            CargarMateriales();
+            LoadMateriales();
+
+            txtSearch.KeyDown += TxtSearch_KeyDown;
         }
 
-        private void CargarMateriales()
+        
+        private void LoadMateriales()
         {
-            listaMateriales = materialController.ObtenerMateriales();
+            materialesList = materialController.GetAll();
 
-            tablaMateriales.ItemsSource = null;
+            tableMateriales.ItemsSource = null;
 
-            tablaMateriales.ItemsSource = listaMateriales;
+            tableMateriales.ItemsSource = materialesList;
         }
 
-        private void BtnAgregar_Click(object sender, RoutedEventArgs e)
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            AddMaterialWindow addMaterialWindow = new AddMaterialWindow();
 
+            addMaterialWindow.ShowDialog();
+
+            LoadMateriales();
         }
 
-        private void BtnEditar_Click(object sender, RoutedEventArgs e)
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
+            Material material = (sender as Button).DataContext as Material;
 
+            if (material != null)
+            {
+                EditMaterialWindow editMaterialWindow = new EditMaterialWindow(material);
+
+                editMaterialWindow.ShowDialog();
+
+                LoadMateriales();
+            }
         }
 
-        private void TxtBuscar_TextChanged(object sender, RoutedEventArgs e)
+        private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
+            string texto = txtSearch.Text.ToLower();
 
+
+            var filtereds = materialesList
+                .Where(m =>
+                    m.Nombre.ToLower().Contains(texto)
+                    ||
+                    m.Descripcion.ToLower().Contains(texto)
+                )
+                .ToList();
+
+            tableMateriales.ItemsSource = null;
+
+            tableMateriales.ItemsSource = filtereds;
+        }
+
+        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                txtSearch.Clear();
+
+                tableMateriales.ItemsSource = null;
+
+                tableMateriales.ItemsSource = materialesList;
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ namespace WpfAppProyectoIntegrador2026_1.Security
 {
     public class PasswordHasher
     {
-        public static string ToSha256(string text)
+        public static string HashPassword(string text)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -24,6 +24,13 @@ namespace WpfAppProyectoIntegrador2026_1.Security
 
                 return builder.ToString();
             }
+        }
+
+        public static bool VerifyPassword(string password, string passwordHash)
+        {
+            string hash = HashPassword(password);
+            
+            return hash == passwordHash;
         }
     }
 }

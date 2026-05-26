@@ -12,54 +12,54 @@ using System.Windows.Shapes;
 using WpfAppProyectoIntegrador2026_1.Controllers;
 using WpfAppProyectoIntegrador2026_1.Models;
 
-namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
+namespace WpfAppProyectoIntegrador2026_1.Views.Materiales
 {
     /// <summary>
-    /// Lógica de interacción para EditarClienteWindow.xaml
+    /// Lógica de interacción para EditMaterialWindow.xaml
     /// </summary>
-    public partial class EditClienteWindow : Window
+    public partial class EditMaterialWindow : Window
     {
-        //private Cliente cliente { get; set; }
+        private readonly MaterialController materialController = new MaterialController();
 
-        private readonly ClienteController clienteController = new ClienteController();
+        private readonly Material material;
 
-        private readonly Cliente cliente;
-
-        public EditClienteWindow(Cliente cliente)
+        public EditMaterialWindow(Material material)
         {
             InitializeComponent();
+            
+            this.material = material;
 
-            this.cliente = cliente;
-
-            LoadClienteData();
+            LoadMaterialData();
 
             txtNombre.KeyDown += TextBox_KeyDown;
-            txtIdentificacion.KeyDown += TextBox_KeyDown;
-            txtTelefono.KeyDown += TextBox_KeyDown;
-            txtCorreo.KeyDown += TextBox_KeyDown;
+            txtPrecioUnidad.KeyDown += TextBox_KeyDown;
+            txtDescripcion.KeyDown += TextBox_KeyDown;    
+
         }
 
-        private void LoadClienteData()
+        
+
+        private void LoadMaterialData()
         {
-            txtNombre.Text = cliente.Nombre;
+            txtNombre.Text = material.Nombre;
 
-            txtIdentificacion.Text = cliente.Identificacion;
+            txtPrecioUnidad.Text = material.PrecioUnidad.ToString();
 
-            txtTelefono.Text = cliente.Telefono;
+            txtDescripcion.Text = material.Descripcion;
 
-            txtCorreo.Text = cliente.Correo;
+            chkEstado.IsChecked = material.Estado;
 
         }
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Cliente updatedCliente = new Cliente(cliente.Id, txtNombre.Text, txtIdentificacion.Text, txtTelefono.Text, txtTelefono.Text);
-           
-            string message = clienteController.Update(updatedCliente);
-            
+            Material updatedMaterial = new Material(material.Id, txtNombre.Text,Decimal.Parse(txtPrecioUnidad.Text), txtDescripcion.Text, chkEstado.IsChecked ?? false);
+
+            string message = materialController.Update(updatedMaterial);
+
             MessageBox.Show(message);
 
-            if (message == "Cliente updated successfully.")
+            if (message == "Material updated successfully.")
             {
                 Close();
             }
@@ -70,8 +70,8 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
         // CANCEL
         // =====================================================
 
-        private void BtnCancel_Click(object sender,
-                                     RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+
         {
             Close();
         }
@@ -86,7 +86,6 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
             if (e.Key == Key.Escape)
             {
                 TextBox textBox = sender as TextBox;
-
 
                 if (textBox != null)
                 {
