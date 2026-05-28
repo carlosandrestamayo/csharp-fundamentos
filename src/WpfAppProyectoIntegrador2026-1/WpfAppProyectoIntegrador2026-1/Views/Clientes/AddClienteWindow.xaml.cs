@@ -30,6 +30,34 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
             txtIdentificacion.KeyDown += TextBox_KeyDown;
             txtTelefono.KeyDown += TextBox_KeyDown;
             txtCorreo.KeyDown += TextBox_KeyDown;
+
+            txtNombre.TextChanged += TextBox_TextChanged;
+            txtIdentificacion.TextChanged += TextBox_TextChanged;
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                lblNombre.Visibility =
+                Visibility.Visible;
+            }
+            else
+            {
+                lblNombre.Visibility =
+                Visibility.Hidden;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtIdentificacion.Text))
+            {
+                lblIdentificacion.Visibility =
+                Visibility.Visible;
+            }
+            else
+            {
+                lblIdentificacion.Visibility =
+                Visibility.Hidden;
+            }
         }
 
         private void BtnSave_Click(object sender,
@@ -53,8 +81,8 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
             Close();
         }
 
-        private void TextBox_KeyDown(object sender,
-                                     KeyEventArgs e)
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+
         {
             if (e.Key == Key.Escape)
             {

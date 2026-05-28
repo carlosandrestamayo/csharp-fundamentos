@@ -46,20 +46,33 @@
                 </StackPanel>
 
                 <!-- NOMBRE -->
-                <TextBox x:Name="txtNombre"
+                <StackPanel Grid.Row="1">
+
+                    <TextBlock Name="lblNombre"
+                                Text="Nombre"
+                               Style="{StaticResource LabelText}"/>
+
+                    <TextBox x:Name="txtNombre"
                          Grid.Row="1"
                          Width="420"
                          HorizontalAlignment="Left"
                          Tag="Nombre del cliente"
                          Style="{StaticResource ModernTextBox}"/>
+                </StackPanel>
 
                 <!-- IDENTIFICACIÓN -->
-                <TextBox x:Name="txtIdentificacion"
+                <StackPanel Grid.Row="2">
+
+                    <TextBlock Name="lblIdentificacion"
+                               Text="Identificación"
+                               Style="{StaticResource LabelText}"/>
+                    <TextBox x:Name="txtIdentificacion"
                          Grid.Row="2"
                          Width="420"
                          HorizontalAlignment="Left"
                          Tag="Número de identificación"
                          Style="{StaticResource ModernTextBox}"/>
+                </StackPanel>
 
                 <!-- TELÉFONO -->
                 <TextBox x:Name="txtTelefono"

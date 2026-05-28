@@ -1,0 +1,95 @@
+﻿<Window x:Class="WpfAppProyectoIntegrador2026_1.Views.AlertWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppProyectoIntegrador2026_1.Views"
+        mc:Ignorable="d"
+        Title="" Height="180" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Grid>
+
+        <!-- CARD -->
+        <Border Width="360"
+                Padding="25"
+                CornerRadius="18"
+                Background="LightGray"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+
+                <!-- HEADER -->
+                <StackPanel Orientation="Horizontal">
+
+                    <!-- ICON -->
+                    <Border Width="50"
+                            Height="50"
+                            CornerRadius="25"
+                            Background="{StaticResource DangerColor}">
+
+                        <TextBlock x:Name="txtIcon"
+                                   Text="✓"
+                                   FontSize="24"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+
+                    <StackPanel Margin="15,0,0,0">
+
+                        <TextBlock x:Name="txtTitulo"
+                                   FontSize="24"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource PrimaryText}"/>
+
+                        <TextBlock Text="Mensaje del sistema"
+                                   Margin="0,5,0,0"
+                                   FontSize="13"
+                                   Foreground="{StaticResource SecondaryText}"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+                <!-- MENSAJE -->
+                <TextBlock x:Name="txtMensaje"
+                           Grid.Row="1"
+                           Margin="0,25,0,0"
+                           FontSize="15"
+                           TextWrapping="Wrap"
+                           />
+
+                <!-- BUTTONS -->
+                <StackPanel Grid.Row="2"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0,25,0,0">
+
+                    <Button Content="Aceptar"
+                            Width="120"
+                            Style="{StaticResource DangerButton}"
+                            Click="BtnAceptar_Click"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</Window>

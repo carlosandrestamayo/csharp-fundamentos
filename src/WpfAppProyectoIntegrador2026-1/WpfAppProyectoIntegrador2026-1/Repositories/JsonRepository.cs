@@ -25,27 +25,46 @@ namespace WpfAppProyectoIntegrador2026_1.Repositorys
         {
             List<T> list = new List<T>();
 
-            if (File.Exists(filePath))
+            try
             {
-                using (StreamReader sr = new StreamReader(filePath))
+                if (File.Exists(filePath))
                 {
-                    string json =
-                        sr.ReadToEnd();
-
-                    if (json != string.Empty)
+                    using (StreamReader sr = new StreamReader(filePath))
                     {
-                        list = JsonSerializer.Deserialize<List<T>>(json) ?? list;
+                        string json =
+                            sr.ReadToEnd();
+
+                        if (json != string.Empty)
+                        {
+                            list = JsonSerializer.Deserialize<List<T>>(json) ?? list;
+                        }
                     }
                 }
+                else
+                {
+                    Directory.CreateDirectory(folder);
+
+                    File.WriteAllText(filePath, "[]");
+                }
+
+                return list;
             }
-            else
+            catch (JsonException ex)
             {
-                Directory.CreateDirectory(folder);
-
-                File.WriteAllText(filePath, "[]");
+                throw new Exception("El archivo JSON está corrupto.", ex);
             }
-
-            return list;
+            catch (UnauthorizedAccessException ex)
+            {
+                throw new Exception("No tienes permisos para acceder al archivo.", ex);
+            }
+            catch (IOException ex)
+            {
+                throw new Exception("Error de lectura o escritura del archivo.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error inesperado al cargar los datos.", ex);
+            }
         }
 
         public List<T> Leer()

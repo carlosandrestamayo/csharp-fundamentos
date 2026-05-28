@@ -36,12 +36,26 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
 
         private void LoadClientes()
         {
-            clientesList = clienteController.GetAll();
+            try 
+            {   
+                clientesList = clienteController.GetAll();
 
-            tableClientes.ItemsSource = null;
+                tableClientes.ItemsSource = null;
 
-            tableClientes.ItemsSource = clientesList;
-        }
+                tableClientes.ItemsSource = clientesList;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(
+                //    ex.Message,
+                //    "Error",
+                //    MessageBoxButton.OK,
+                //    MessageBoxImage.Error
+                //);
+                AlertWindow alert = new AlertWindow("Error",ex.Message);
+                alert.ShowDialog();
+            }
+}
 
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {

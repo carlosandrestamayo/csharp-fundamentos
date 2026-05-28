@@ -8,10 +8,48 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
 
-        <TextBlock Text="COTIZACIONES"
-                   FontSize="35"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+        <Border Style="{StaticResource CardStyle}">
+
+            <StackPanel>
+
+                <TextBlock Text="Datos del Cliente"
+                   Style="{StaticResource TitleText}"/>
+
+                <!-- CLIENTE -->
+                <TextBlock Text="Cliente"
+                   Style="{StaticResource LabelText}"/>
+
+                <ComboBox x:Name="cbClientes"
+                  Style="{StaticResource ModernComboBox}"
+                  SelectionChanged="CbClientes_SelectionChanged"/>
+
+                <!-- IDENTIFICACIÓN -->
+                <TextBlock Text="Identificación"
+                   Style="{StaticResource LabelText}"/>
+
+                <TextBox x:Name="txtIdentificacion"
+                 IsReadOnly="True"
+                 Style="{StaticResource ModernTextBox}"/>
+
+                <!-- TELÉFONO -->
+                <TextBlock Text="Teléfono"
+                   Style="{StaticResource LabelText}"/>
+
+                <TextBox x:Name="txtTelefono"
+                 IsReadOnly="True"
+                 Style="{StaticResource ModernTextBox}"/>
+
+                <!-- CORREO -->
+                <TextBlock Text="Correo"
+                   Style="{StaticResource LabelText}"/>
+
+                <TextBox x:Name="txtCorreo"
+                 IsReadOnly="True"
+                 Style="{StaticResource ModernTextBox}"/>
+
+            </StackPanel>
+
+        </Border>
 
     </Grid>
 </UserControl>
