@@ -31,7 +31,10 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
         {
             try
             {
-                usuariosList = usuarioController.GetAll();
+                usuariosList = usuarioController
+                                .GetAll()
+                                .Where(user => user.Rol == Rol.Operador)
+                                .ToList();
 
                 tableUsuarios.ItemsSource = null;
 
@@ -88,8 +91,8 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usuario =
-                (sender as Button).DataContext as Usuario;
+            Usuario usuario = (sender as Button).DataContext as Usuario;
+
 
             //if (usuario != null)
             //{
@@ -104,24 +107,23 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
 
         private void BtnPassword_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usuario =
-                (sender as Button).DataContext as Usuario;
+            Usuario usuario = (sender as Button).DataContext as Usuario;
 
-            //if (usuario != null)
-            //{
-            //    ChangePasswordWindow changePasswordWindow =
-            //        new ChangePasswordWindow(usuario);
 
-            //    changePasswordWindow.ShowDialog();
+            if (usuario != null)
+            {
+                ChangePasswordWindow changePasswordWindow = new ChangePasswordWindow(usuario);
 
-            //    LoadUsuarios();
-            //}
+                changePasswordWindow.ShowDialog();
+
+                LoadUsuarios();
+            }
         }
 
         private void BtnStatus_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usuario =
-                (sender as Button).DataContext as Usuario;
+            Usuario usuario = (sender as Button).DataContext as Usuario;
+
 
             if (usuario == null)
             {
@@ -144,11 +146,8 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
             {
                 return;
             }
-
-            usuario.Activo = !usuario.Activo;
-
-            // Próximamente:
-            // usuarioController.Update(usuario);
+                       
+            usuarioController.ToggleStatus(usuario.Id);
 
             LoadUsuarios();
         }

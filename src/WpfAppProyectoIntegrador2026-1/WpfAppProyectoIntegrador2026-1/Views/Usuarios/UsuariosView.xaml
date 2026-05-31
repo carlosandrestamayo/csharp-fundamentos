@@ -62,15 +62,10 @@
 
                 <!-- TABLE -->
                 <DataGrid x:Name="tableUsuarios"
-
                           Grid.Row="1"
-
                           CanUserAddRows="False"
-
                           IsReadOnly="True"
-
                           BorderThickness="0"
-
                           SelectionMode="Single">
 
                     <DataGrid.Columns>
@@ -101,31 +96,25 @@
                                     <StackPanel Orientation="Horizontal">
 
                                         <Button Content="Editar"
-
                                                 Width="80"
-
                                                 Margin="0,0,5,0"
-
                                                 Style="{StaticResource GridButton}"
-
                                                 Click="BtnEdit_Click"/>
 
                                         <Button Content="Password"
-
                                                 Width="90"
-
                                                 Margin="0,0,5,0"
-
                                                 Style="{StaticResource GridButton}"
-
                                                 Click="BtnPassword_Click"/>
 
-                                        <Button Content="Estado"
-
+                                        <!--<Button Content="Estado"
                                                 Width="80"
-
                                                 Style="{StaticResource GridButton}"
-
+                                                Click="BtnStatus_Click"/>-->
+                                        
+                                        <Button Content="Estado"
+                                                Style="{StaticResource StatusButton}"
+                                                Width="90"
                                                 Click="BtnStatus_Click"/>
 
                                     </StackPanel>

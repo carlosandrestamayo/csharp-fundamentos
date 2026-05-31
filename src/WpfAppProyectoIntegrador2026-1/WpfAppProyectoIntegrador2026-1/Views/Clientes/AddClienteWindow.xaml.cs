@@ -21,7 +21,6 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
     {
         private readonly ClienteController clienteController = new ClienteController();
 
-
         public AddClienteWindow()
         {
             InitializeComponent();
@@ -31,34 +30,34 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
             txtTelefono.KeyDown += TextBox_KeyDown;
             txtCorreo.KeyDown += TextBox_KeyDown;
 
-            txtNombre.TextChanged += TextBox_TextChanged;
-            txtIdentificacion.TextChanged += TextBox_TextChanged;
+            //txtNombre.TextChanged += TextBox_TextChanged;
+            //txtIdentificacion.TextChanged += TextBox_TextChanged;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                lblNombre.Visibility =
-                Visibility.Visible;
-            }
-            else
-            {
-                lblNombre.Visibility =
-                Visibility.Hidden;
-            }
+        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(txtNombre.Text))
+        //    {
+        //        lblNombre.Visibility =
+        //        Visibility.Visible;
+        //    }
+        //    else
+        //    {
+        //        lblNombre.Visibility =
+        //        Visibility.Hidden;
+        //    }
 
-            if (string.IsNullOrWhiteSpace(txtIdentificacion.Text))
-            {
-                lblIdentificacion.Visibility =
-                Visibility.Visible;
-            }
-            else
-            {
-                lblIdentificacion.Visibility =
-                Visibility.Hidden;
-            }
-        }
+        //    if (string.IsNullOrWhiteSpace(txtIdentificacion.Text))
+        //    {
+        //        lblIdentificacion.Visibility =
+        //        Visibility.Visible;
+        //    }
+        //    else
+        //    {
+        //        lblIdentificacion.Visibility =
+        //        Visibility.Hidden;
+        //    }
+        //}
 
         private void BtnSave_Click(object sender,
                                RoutedEventArgs e)

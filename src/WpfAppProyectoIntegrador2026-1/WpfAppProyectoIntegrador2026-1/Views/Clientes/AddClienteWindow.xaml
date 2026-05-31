@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProyectoIntegrador2026_1.Views.Clientes"
         mc:Ignorable="d"
-        Title="" Height="500" Width="540"
+        Title="" Height="600" Width="540"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"   
         Background="{StaticResource MainBackground}">
@@ -48,12 +48,10 @@
                 <!-- NOMBRE -->
                 <StackPanel Grid.Row="1">
 
-                    <TextBlock Name="lblNombre"
-                                Text="Nombre"
+                    <TextBlock Text="Nombre"
                                Style="{StaticResource LabelText}"/>
 
                     <TextBox x:Name="txtNombre"
-                         Grid.Row="1"
                          Width="420"
                          HorizontalAlignment="Left"
                          Tag="Nombre del cliente"
@@ -63,27 +61,39 @@
                 <!-- IDENTIFICACIÓN -->
                 <StackPanel Grid.Row="2">
 
-                    <TextBlock Name="lblIdentificacion"
-                               Text="Identificación"
+                    <TextBlock Text="Identificación"
                                Style="{StaticResource LabelText}"/>
+                    
                     <TextBox x:Name="txtIdentificacion"
                          Grid.Row="2"
                          Width="420"
                          HorizontalAlignment="Left"
                          Tag="Número de identificación"
                          Style="{StaticResource ModernTextBox}"/>
+                
                 </StackPanel>
 
                 <!-- TELÉFONO -->
-                <TextBox x:Name="txtTelefono"
-                         Grid.Row="3"
+                <StackPanel Grid.Row="3">
+                    
+                    <TextBlock Text="Teléfono"
+                           Style="{StaticResource LabelText}"/>
+                
+                    <TextBox x:Name="txtTelefono"
                          Width="420"
                          HorizontalAlignment="Left"
                          Tag="Número telefónico"
                          Style="{StaticResource ModernTextBox}"/>
+                </StackPanel>
+
 
                 <!-- CORREO -->
-                <TextBox x:Name="txtCorreo"
+                <StackPanel Grid.Row="4">
+
+                    <TextBlock Text="Correo"
+                               Style="{StaticResource LabelText}"/>
+                    
+                    <TextBox x:Name="txtCorreo"
                          Grid.Row="4"
                          Width="420"
                          Height="40"
@@ -91,6 +101,8 @@
                          HorizontalAlignment="Left"
                          Tag="Correo electrónico"
                          Style="{StaticResource ModernTextBox}"/>
+                
+                </StackPanel>
 
                 <!-- BOTONES -->
                 <StackPanel Grid.Row="5"

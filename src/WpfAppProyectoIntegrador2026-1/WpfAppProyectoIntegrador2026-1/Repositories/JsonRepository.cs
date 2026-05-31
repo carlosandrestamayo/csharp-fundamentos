@@ -113,19 +113,19 @@ namespace WpfAppProyectoIntegrador2026_1.Repositorys
             }
         }
 
-        public void Guardar(List<T> lista)
-        {
-            JsonSerializerOptions opciones = new JsonSerializerOptions
-            {
-                WriteIndented = true
-            };
+        //public void Guardar(List<T> lista)
+        //{
+        //    JsonSerializerOptions opciones = new JsonSerializerOptions
+        //    {
+        //        WriteIndented = true
+        //    };
 
-            using (StreamWriter sw = new StreamWriter(filePath))
-            {
-                string json = JsonSerializer.Serialize<List<T>>(lista, opciones);
-                sw.Write(json);
-            }
-        }
+        //    using (StreamWriter sw = new StreamWriter(filePath))
+        //    {
+        //        string json = JsonSerializer.Serialize<List<T>>(lista, opciones);
+        //        sw.Write(json);
+        //    }
+        //}
 
         // =====================================================
         // UPDATE
@@ -145,16 +145,16 @@ namespace WpfAppProyectoIntegrador2026_1.Repositorys
             }
         }
 
-        public void Editar(T nuevoItem, Func<T, bool> criterio)
-        {
-            List<T> lista = Leer();
-            int index = lista.FindIndex(item => criterio(item));
-            if (index != -1)
-            {
-                lista[index] = nuevoItem;
-                Guardar(lista);
-            }
-        }
+        //public void Editar(T nuevoItem, Func<T, bool> criterio)
+        //{
+        //    List<T> lista = Leer();
+        //    int index = lista.FindIndex(item => criterio(item));
+        //    if (index != -1)
+        //    {
+        //        lista[index] = nuevoItem;
+        //        Guardar(lista);
+        //    }
+        //}
 
         // =====================================================
         // DELETE
@@ -170,12 +170,12 @@ namespace WpfAppProyectoIntegrador2026_1.Repositorys
         }
 
 
-        public void Eliminar(Func<T, bool> criterio)
-        {
-            List<T> lista = Leer();
-            lista.RemoveAll(item => criterio(item));
-            Guardar(lista);
-        }
+        //public void Eliminar(Func<T, bool> criterio)
+        //{
+        //    List<T> lista = Leer();
+        //    lista.RemoveAll(item => criterio(item));
+        //    Guardar(lista);
+        //}
 
         // =====================================================
         // FIND
@@ -189,11 +189,11 @@ namespace WpfAppProyectoIntegrador2026_1.Repositorys
                 predicate(item));
         }
 
-        public T? Buscar(Func<T, bool> criterio)
-        {
-            List<T> lista = Leer();
-            return lista.FirstOrDefault(item => criterio(item));
-        }
+        //public T? Buscar(Func<T, bool> criterio)
+        //{
+        //    List<T> lista = Leer();
+        //    return lista.FirstOrDefault(item => criterio(item));
+        //}
 
     }
 }

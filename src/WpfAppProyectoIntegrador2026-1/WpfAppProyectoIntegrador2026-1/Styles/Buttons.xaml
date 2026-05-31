@@ -421,7 +421,7 @@
             Value="{StaticResource WhiteText}"/>
 
         <Setter Property="Background"
-            Value="{StaticResource SuccessColor}"/>
+            Value="{StaticResource SecondaryColor}"/>
 
         <Setter Property="BorderThickness"
             Value="0"/>
@@ -461,9 +461,122 @@
                  Value="True">
 
                 <Setter Property="Background"
-                    Value="{StaticResource SuccessHoverColor}"/>
+                    Value="{StaticResource SecondaryHoverColor}"/>
 
             </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+    <Style x:Key="StatusButton"
+       TargetType="Button">
+
+        <Setter Property="Height"
+            Value="30"/>
+
+        <Setter Property="FontSize"
+            Value="12"/>
+
+        <Setter Property="FontWeight"
+            Value="SemiBold"/>
+
+        <Setter Property="Foreground"
+            Value="White"/>
+
+        <Setter Property="BorderThickness"
+            Value="0"/>
+
+        <Setter Property="Cursor"
+            Value="Hand"/>
+
+        <Setter Property="Padding"
+            Value="10,2"/>
+
+        <Setter Property="Margin"
+            Value="2"/>
+
+        <Setter Property="Background"
+            Value="{StaticResource SuccessColor}"/>
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="Button">
+
+                    <Border Background="{TemplateBinding Background}"
+                        CornerRadius="8">
+
+                        <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"/>
+
+                    </Border>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+
+        <Style.Triggers>
+
+            <!-- ACTIVO -->
+            <DataTrigger Binding="{Binding Activo}"
+                     Value="False">
+
+                <Setter Property="Background"
+                    Value="{StaticResource DangerColor}"/>
+
+            </DataTrigger>
+
+            <!-- INACTIVO -->
+            <DataTrigger Binding="{Binding Activo}"
+                     Value="True">
+
+                <Setter Property="Background"
+                    Value="{StaticResource SuccessColor}"/>
+
+            </DataTrigger>
+
+            <!-- ACTIVO + HOVER -->
+            <MultiDataTrigger>
+
+                <MultiDataTrigger.Conditions>
+
+                    <Condition Binding="{Binding Activo}"
+                           Value="True"/>
+
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},
+                                              Path=IsMouseOver}"
+                           Value="True"/>
+
+                </MultiDataTrigger.Conditions>
+
+                <Setter Property="Background"
+                        Value="{StaticResource SuccessHoverColor}"/>
+
+            </MultiDataTrigger>
+
+            <!-- INACTIVO + HOVER -->
+            <MultiDataTrigger>
+
+                <MultiDataTrigger.Conditions>
+
+                    <Condition Binding="{Binding Activo}"
+                           Value="False"/>
+
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},
+                                              Path=IsMouseOver}"
+                           Value="True"/>
+
+                </MultiDataTrigger.Conditions>
+
+                
+                <Setter Property="Background"
+                    Value="{StaticResource DangerHoverColor}"/>
+
+            </MultiDataTrigger>
 
         </Style.Triggers>
 

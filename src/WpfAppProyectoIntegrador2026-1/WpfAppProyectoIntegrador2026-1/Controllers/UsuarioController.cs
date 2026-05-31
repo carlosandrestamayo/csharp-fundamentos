@@ -85,7 +85,43 @@ namespace WpfAppProyectoIntegrador2026_1.Controllers
             return "User registered successfully.";
         }
 
-       
+        public void Update(Usuario usuario, Guid id)
+        {
+            usuarioRepository.Update(usuario, id);
+        }
+
+        public void ResetPassword(Guid id, string password)
+        {
+            Usuario? usuario = usuarioRepository.Find(id);
+
+
+            if (usuario == null)
+            {
+                throw new Exception("Usuario no encontrado.");
+            }
+
+            usuario.PasswordHash = PasswordHasher.HashPassword(password);
+
+            usuarioRepository.Update(usuario, id);
+        }
+
+        public void ToggleStatus(Guid id)
+        {
+            Usuario? usuario = usuarioRepository.Find(id);
+
+            if (usuario == null)
+            {
+                throw new Exception(
+                    "Usuario no encontrado."
+                );
+            }
+
+            usuario.Activo = !usuario.Activo;
+
+            usuarioRepository.Update(usuario, id);
+        }
+
+
         public List<Usuario> GetAll()
         {
             return usuarioRepository.GetAll();

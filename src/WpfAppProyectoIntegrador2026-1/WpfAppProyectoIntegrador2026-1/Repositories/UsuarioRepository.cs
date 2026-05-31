@@ -28,9 +28,9 @@ namespace WpfAppProyectoIntegrador2026_1.Repositorys
             jsonRepository.Save(lista);
         }
 
-        public void Update(Usuario nuevoUsuario, string codigo)
+        public void Update(Usuario nuevoUsuario, Guid id)
         {
-            //jsonRepository.Editar(nuevaUsuario, m => m.codigo == codigo);
+            jsonRepository.Update(nuevoUsuario, m => m.Id == id);
 
         }
 
