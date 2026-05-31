@@ -91,6 +91,11 @@
                     <Button Content="🧾  Facturas"
                             Style="{StaticResource MenuButton}"
                             Click="BtnFacturas_Click"/>
+                    
+                    <Button x:Name="btnUsuarios"
+                            Content="🔐  Usuarios"
+                            Style="{StaticResource MenuButton}"
+                            Click="BtnUsuarios_Click"/>
 
                 </StackPanel>
 
@@ -100,28 +105,35 @@
 
                 <Border Grid.Row="2"
                         Style="{StaticResource CardStyle}"
-
                         Margin="15"
-
                         Background="#1F2937"
-
-                        BorderThickness="0">
+                        BorderThickness="0">    
 
                     <StackPanel>
 
-                        <TextBlock Text="Proyecto Integrador"
-                                   Foreground="{StaticResource WhiteText}"
-                                   FontWeight="SemiBold"/>
+                        <!-- USUARIO -->
+                        <TextBlock x:Name="txtUserName"
+                                    Text="Usuario"
+                                    Foreground="{StaticResource WhiteText}"
+                                    FontWeight="SemiBold"
+                                    FontSize="14"/>  
 
-                        <TextBlock Text="2026"
-                                   Style="{StaticResource MutedText}"
-                                   Foreground="{StaticResource SecondaryText}"
-                                   Margin="0,5,0,0"/>
+                        <!-- ROL -->
+                        <TextBlock x:Name="txtUserRole"
+                                    Text="Rol"
+                                    Style="{StaticResource MutedText}"
+                                    Foreground="{StaticResource SecondaryText}"
+                                    Margin="0,5,0,15"/>  
+
+                        <!-- LOGOUT -->
+                        <Button x:Name="btnLogout"
+                                Content="🚪 Cerrar Sesión"
+                                Style="{StaticResource SecondaryButton}"
+                                Click="BtnLogout_Click"/>
 
                     </StackPanel>
 
                 </Border>
-
             </Grid>
 
         </Border>

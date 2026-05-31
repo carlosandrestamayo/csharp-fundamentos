@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProyectoIntegrador2026_1.Views.Authentication"
         mc:Ignorable="d"
-        Title="Login"
+        Title=""
 
-        Height="500"
-        Width="450"
+        Height="450"
+        Width="400"
 
         ResizeMode="NoResize"
 

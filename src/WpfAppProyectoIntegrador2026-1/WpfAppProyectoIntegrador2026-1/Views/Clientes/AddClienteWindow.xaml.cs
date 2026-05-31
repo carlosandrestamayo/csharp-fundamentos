@@ -82,7 +82,6 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
         }
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
-
         {
             if (e.Key == Key.Escape)
             {

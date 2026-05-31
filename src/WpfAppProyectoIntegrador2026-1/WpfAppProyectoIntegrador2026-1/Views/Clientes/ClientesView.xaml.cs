@@ -92,7 +92,6 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
-
         {
             AddClienteWindow addClienteWindow = new AddClienteWindow();
 

@@ -17,6 +17,15 @@ namespace WpfAppProyectoIntegrador2026_1.Models
 
         public DateTime CreatedAt { get; set; }
 
+        [JsonIgnore]
+        public string Estado{
+            
+            get
+            {
+                return Activo ? "Activo" : "Inactivo";
+            }
+        }
+
         [JsonConstructor]
         public Usuario(
             Guid id,

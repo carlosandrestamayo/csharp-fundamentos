@@ -8,9 +8,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAppProyectoIntegrador2026_1.Models;
 using WpfAppProyectoIntegrador2026_1.Repositorys;
+using WpfAppProyectoIntegrador2026_1.Security;
 using WpfAppProyectoIntegrador2026_1.Views;
+using WpfAppProyectoIntegrador2026_1.Views.Authentication;
 using WpfAppProyectoIntegrador2026_1.Views.Clientes;
+using WpfAppProyectoIntegrador2026_1.Views.Usuarios;
 
 namespace WpfAppProyectoIntegrador2026_1
 {
@@ -25,6 +29,10 @@ namespace WpfAppProyectoIntegrador2026_1
 
             // Vista inicial
             Contenedor.Content = new DashboardView();
+
+            LoadUserInfo();
+
+            ApplyPermissions();
         }
 
         private void BtnDashboard_Click(object sender, RoutedEventArgs e)
@@ -54,5 +62,51 @@ namespace WpfAppProyectoIntegrador2026_1
         {
             Contenedor.Content = new FacturasView();
         }
+
+        private void BtnUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            Contenedor.Content = new UsuariosView();
+        }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            SessionManager.CurrentUser = null;
+
+            LoginWindow loginWindow = new LoginWindow();
+
+            loginWindow.Show();
+
+            Close();
+        }
+
+        private void LoadUserInfo()
+        {
+            Usuario? usuario = SessionManager.CurrentUser;
+
+            if (usuario == null)
+            {
+                return;
+            }
+
+            txtUserName.Text = usuario.Nombre;
+
+            txtUserRole.Text = usuario.Rol.ToString();
+        }
+
+        private void ApplyPermissions()
+        {
+            Usuario? usuario = SessionManager.CurrentUser;
+
+            if (usuario == null)
+            {
+                return;
+            }
+
+            if (usuario.Rol != Rol.Administrador)
+            {
+                btnUsuarios.Visibility = Visibility.Collapsed;
+            }
+        }
+
     }
 }

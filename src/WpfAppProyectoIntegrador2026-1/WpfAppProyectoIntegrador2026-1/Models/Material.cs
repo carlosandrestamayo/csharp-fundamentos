@@ -18,6 +18,16 @@ namespace WpfAppProyectoIntegrador2026_1.Models
 
         public bool Estado { get; set; } = true;
 
+        //[JsonIgnore]
+        //public string Estado
+        //{
+
+        //    get
+        //    {
+        //        return Activo ? "Activo" : "Inactivo";
+        //    }
+        //}
+
         [JsonConstructor]
         public Material(Guid id, string nombre, decimal precioUnidad, string descripcion, bool estado = true)
         {
