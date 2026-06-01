@@ -97,6 +97,11 @@
                             Style="{StaticResource MenuButton}"
                             Click="BtnUsuarios_Click"/>
 
+                    <Button x:Name="btnChangePassword"
+                            Content="🔐  Cambiar Contraseña"
+                            Style="{StaticResource MenuButton}"
+                            Click="BtnChangePassword_Click"/>
+
                 </StackPanel>
 
                 <!-- ===================================================== -->

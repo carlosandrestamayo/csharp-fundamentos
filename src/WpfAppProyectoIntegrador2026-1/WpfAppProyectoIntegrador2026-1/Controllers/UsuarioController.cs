@@ -4,6 +4,7 @@ using System.Text;
 using WpfAppProyectoIntegrador2026_1.Models;
 using WpfAppProyectoIntegrador2026_1.Repositorys;
 using WpfAppProyectoIntegrador2026_1.Security;
+using WpfAppProyectoIntegrador2026_1.Validators;
 
 namespace WpfAppProyectoIntegrador2026_1.Controllers
 {
@@ -121,6 +122,42 @@ namespace WpfAppProyectoIntegrador2026_1.Controllers
             usuarioRepository.Update(usuario, id);
         }
 
+        public void ChangePassword(Guid id, string currentPassword, string newPassword)
+        {
+            Usuario? usuario =
+                usuarioRepository.Find(id);
+
+            if (usuario == null)
+            {
+                throw new Exception(
+                    "Usuario no encontrado."
+                );
+            }
+
+            bool validPassword =
+                PasswordHasher.VerifyPassword(
+                    currentPassword,
+                    usuario.PasswordHash
+                );
+
+            if (!validPassword)
+            {
+                throw new Exception(
+                    "La contraseña actual es incorrecta."
+                );
+            }
+
+            PasswordValidator.Validate(
+                newPassword
+            );
+
+            usuario.PasswordHash =
+                PasswordHasher.HashPassword(
+                    newPassword
+                );
+
+            usuarioRepository.Update(usuario, id);
+        }
 
         public List<Usuario> GetAll()
         {

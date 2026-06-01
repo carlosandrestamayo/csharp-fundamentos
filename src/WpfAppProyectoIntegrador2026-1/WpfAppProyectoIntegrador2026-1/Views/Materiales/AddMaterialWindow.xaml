@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProyectoIntegrador2026_1.Views.Materiales"
         mc:Ignorable="d"
-        Title="" Height="550" Width="540"
+        Title="" Height="650" Width="540"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" >
     <Grid Margin="20">
@@ -44,41 +44,64 @@
                 </StackPanel>
 
                 <!-- NOMBRE -->
-                <TextBox x:Name="txtNombre"
-                     Grid.Row="1"
-                     Width="420"
-                     HorizontalAlignment="Left"
-                     Tag="Nombre del material"
-                     Style="{StaticResource ModernTextBox}"/>
+                <StackPanel  Grid.Row="1" >
+                    <TextBlock Text="Nombre"
+                            Style="{StaticResource LabelText}"/>
+                    
+                    <TextBox x:Name="txtNombre"
+                    
+                         Width="420"
+                         HorizontalAlignment="Left"
+                         Tag="Nombre del material"
+                         Style="{StaticResource ModernTextBox}"/>
+                </StackPanel>
 
                 <!-- PRECIO -->
-                <TextBox x:Name="txtPrecioUnidad"
-                     Grid.Row="2"
-                     Width="420"
-                     HorizontalAlignment="Left"
-                     Tag="Precio por m³"
-                     Style="{StaticResource ModernTextBox}"/>
+
+                <StackPanel  Grid.Row="2" >
+                
+                    <TextBlock Text="Precio"
+                                Style="{StaticResource LabelText}"/>
+
+                    <TextBox x:Name="txtPrecioUnidad"
+                         Grid.Row="2"
+                         Width="420"
+                         HorizontalAlignment="Left"
+                         Tag="Precio por m³"
+                         Style="{StaticResource ModernTextBox}"/>
+
+                </StackPanel>
 
                 <!-- DESCRIPCION -->
-                <TextBox x:Name="txtDescripcion"
-                     Grid.Row="3"
-                     Width="420"
-                     Height="120"
-                     AcceptsReturn="True"
-                     TextWrapping="Wrap"
-                     VerticalScrollBarVisibility="Auto"
-                     HorizontalAlignment="Left"
-                     Tag="Descripción"
-                     Style="{StaticResource ModernTextBox}"/>
+                <StackPanel  Grid.Row="3" >
+
+                    <TextBlock Text="Descripción"
+                               Style="{StaticResource LabelText}"/>
+                    
+                    <TextBox x:Name="txtDescripcion"
+                            Width="420"
+                            Height="120"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto"
+                            HorizontalAlignment="Left"
+                            Tag="Descripción"
+                            Style="{StaticResource ModernTextBox}"/>
+
+                </StackPanel>
 
                 <!-- ESTADO -->
-                <CheckBox x:Name="chkEstado"
-                      Grid.Row="4"
-                      Content="Activo"
-                      IsChecked="True"
-                      FontSize="14"
-                      Foreground="{StaticResource PrimaryText}"
-                      Margin="0,5,0,0"/>
+                <StackPanel  Grid.Row="4" >
+
+                    <TextBlock Text="Estado"
+                                Style="{StaticResource LabelText}"/>
+                    
+                    <CheckBox x:Name="chkActivo"
+                          Grid.Row="4"
+                          Content="Activo"
+                          Style="{StaticResource ModernCheckBox}"/>
+
+                </StackPanel>
 
                 <!-- BOTONES -->
                 <StackPanel Grid.Row="5"

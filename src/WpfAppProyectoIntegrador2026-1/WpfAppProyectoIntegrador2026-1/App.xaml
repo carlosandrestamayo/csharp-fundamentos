@@ -30,6 +30,8 @@
 
                 <ResourceDictionary Source="Styles/PasswordBoxes.xaml"/>
 
+                <ResourceDictionary Source="Styles/CheckBoxes.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

@@ -95,11 +95,11 @@
 
                                     <StackPanel Orientation="Horizontal">
 
-                                        <Button Content="Editar"
+                                        <!--<Button Content="Editar"
                                                 Width="80"
                                                 Margin="0,0,5,0"
                                                 Style="{StaticResource GridButton}"
-                                                Click="BtnEdit_Click"/>
+                                                Click="BtnEdit_Click"/>-->
 
                                         <Button Content="Password"
                                                 Width="90"
@@ -107,11 +107,6 @@
                                                 Style="{StaticResource GridButton}"
                                                 Click="BtnPassword_Click"/>
 
-                                        <!--<Button Content="Estado"
-                                                Width="80"
-                                                Style="{StaticResource GridButton}"
-                                                Click="BtnStatus_Click"/>-->
-                                        
                                         <Button Content="Estado"
                                                 Style="{StaticResource StatusButton}"
                                                 Width="90"

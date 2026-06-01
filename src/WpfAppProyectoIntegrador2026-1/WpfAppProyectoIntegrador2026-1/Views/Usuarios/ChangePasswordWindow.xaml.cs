@@ -50,9 +50,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
             txtPassword.Text = PasswordGenerator.Generate();
         }
 
-        private void BtnGeneratePassword_Click(
-           object sender,
-           RoutedEventArgs e)
+        private void BtnGeneratePassword_Click(object sender, RoutedEventArgs e)
         {
             GeneratePassword();
         }
@@ -87,9 +85,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
             }
         }
 
-        private void BtnCancel_Click(
-            object sender,
-            RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }

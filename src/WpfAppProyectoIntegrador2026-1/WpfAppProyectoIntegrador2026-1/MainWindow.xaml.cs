@@ -68,6 +68,12 @@ namespace WpfAppProyectoIntegrador2026_1
             Contenedor.Content = new UsuariosView();
         }
 
+        private void BtnChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeMyPasswordWindow changeMyPasswordWindow = new ChangeMyPasswordWindow();
+            changeMyPasswordWindow.ShowDialog();
+        }
+
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
             SessionManager.CurrentUser = null;
@@ -105,6 +111,11 @@ namespace WpfAppProyectoIntegrador2026_1
             if (usuario.Rol != Rol.Administrador)
             {
                 btnUsuarios.Visibility = Visibility.Collapsed;
+            }
+
+            if (usuario.Rol != Rol.Operador)
+            {
+                btnChangePassword.Visibility = Visibility.Collapsed;
             }
         }
 

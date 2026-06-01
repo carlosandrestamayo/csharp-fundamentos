@@ -28,7 +28,8 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Authentication
             InitializeComponent();
             txtUsername.Focus();
 
-            txtUsername.Text = "admin";
+            txtUsername.Text = "1065864163";
+            //txtUsername.Text = "admin";
             //txtPassword.TextInput = "admin123";
 
             txtUsername.KeyDown += TextBox_KeyDown;
