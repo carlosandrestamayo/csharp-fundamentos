@@ -86,8 +86,6 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
             Close();
         }
 
-
-
         private void BtnSearchCliente_Click(object sender, RoutedEventArgs e)
         {
             SearchClienteWindow searchClienteWindow = new SearchClienteWindow();

@@ -6,7 +6,126 @@
              xmlns:local="clr-namespace:WpfAppProyectoIntegrador2026_1.Views.Cotizaciones"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="{StaticResource MainBackground}">
+
+        <Border Style="{StaticResource CardStyle}"
+            Margin="15"
+            Padding="20">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                       Text="Gestión de Cotizaciones"
+                       FontSize="35"
+                       FontWeight="Bold"
+                       Margin="10,0,0,20"
+                       Foreground="{StaticResource PrimaryText}"/>
+
+                <Grid Grid.Row="1"
+                  Margin="0,0,0,20">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox x:Name="txtSearch"
+                         Width="320"
+                         Tag="Buscar cotización..."
+                         Style="{StaticResource SearchTextBox}"
+                         TextChanged="TxtSearch_TextChanged"/>
+
+                    <ComboBox x:Name="cmbEstado"
+                          Grid.Column="1"
+                          Width="150"
+                          Margin="10,0,0,0"
+                          SelectionChanged="CmbEstado_SelectionChanged">
+
+                        <ComboBoxItem Content="Todas"
+                                  IsSelected="True"/>
+
+                        <ComboBoxItem Content="Activas"/>
+
+                        <ComboBoxItem Content="Inactivas"/>
+
+                    </ComboBox>
+
+                    <Button Grid.Column="3"
+                        Width="180"
+                        Content="Nueva Cotización"
+                        Style="{StaticResource PrimaryButton}"
+                        Click="BtnAdd_Click"/>
+
+                </Grid>
+
+                <DataGrid x:Name="tableCotizaciones"
+                      Grid.Row="2"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      IsReadOnly="True"
+                      BorderThickness="0"
+                      SelectionMode="Single"
+                      HorizontalGridLinesBrush="#E5E7EB">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="Número"
+                    Binding="{Binding Numero}"
+                    Width="120"/>
+
+                        <DataGridTextColumn Header="Fecha"
+                    Binding="{Binding Fecha}"
+                    Width="150"/>
+
+                        <DataGridTextColumn Header="Cliente"
+                    Binding="{Binding Cliente.Nombre}"
+                    Width="*"/>
+
+                        <DataGridTextColumn Header="Volumen"
+                    Binding="{Binding Volumen}"
+                    Width="120"/>
+
+                        <DataGridTextColumn Header="Total"
+                    Binding="{Binding Total}"
+                    Width="150"/>
+
+                        <DataGridTextColumn Header="Estado"
+                    Binding="{Binding Estado}"
+                    Width="120"/>
+
+                        <DataGridTemplateColumn Header="Acciones"
+                        Width="120">
+
+                            <DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <Button Content="Editar"
+                                        Width="90"
+                                        Style="{StaticResource GridButton}"
+                                        Click="BtnEdit_Click"/>
+
+                                </DataTemplate>
+
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </Grid>
+
+        </Border>
+
     </Grid>
 </UserControl>

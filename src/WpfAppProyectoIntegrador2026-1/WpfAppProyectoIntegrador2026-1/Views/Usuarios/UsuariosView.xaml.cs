@@ -88,22 +88,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
             LoadUsuarios();
         }
 
-        private void BtnEdit_Click(object sender, RoutedEventArgs e)
-        {
-            Usuario usuario = (sender as Button).DataContext as Usuario;
-
-
-            //if (usuario != null)
-            //{
-            //    EditUsuarioWindow editUsuarioWindow =
-            //        new EditUsuarioWindow(usuario);
-
-            //    editUsuarioWindow.ShowDialog();
-
-            //    LoadUsuarios();
-            //}
-        }
-
+        
         private void BtnPassword_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuario = (sender as Button).DataContext as Usuario;

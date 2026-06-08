@@ -14,6 +14,7 @@ using WpfAppProyectoIntegrador2026_1.Security;
 using WpfAppProyectoIntegrador2026_1.Views;
 using WpfAppProyectoIntegrador2026_1.Views.Authentication;
 using WpfAppProyectoIntegrador2026_1.Views.Clientes;
+using WpfAppProyectoIntegrador2026_1.Views.Cotizaciones;
 using WpfAppProyectoIntegrador2026_1.Views.Usuarios;
 
 namespace WpfAppProyectoIntegrador2026_1

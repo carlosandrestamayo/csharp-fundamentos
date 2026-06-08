@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAppProyectoIntegrador2026_1.Controllers;
 
 namespace WpfAppProyectoIntegrador2026_1.Views
 {
@@ -18,9 +19,16 @@ namespace WpfAppProyectoIntegrador2026_1.Views
     /// </summary>
     public partial class DashboardView : UserControl
     {
+        private ClienteController clienteController = new ClienteController();
+        private MaterialController materialController = new MaterialController();
+        
         public DashboardView()
         {
             InitializeComponent();
+
+            txtTotalClientes.Text = clienteController.GetAll().Count.ToString();
+
+            txtTotalMateriales.Text = materialController.GetAll().Count.ToString();
         }
     }
 }

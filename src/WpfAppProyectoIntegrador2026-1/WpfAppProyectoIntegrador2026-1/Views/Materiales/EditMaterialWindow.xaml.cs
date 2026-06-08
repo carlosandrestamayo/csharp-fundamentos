@@ -37,8 +37,6 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Materiales
 
         }
 
-        
-
         private void LoadMaterialData()
         {
             txtNombre.Text = material.Nombre;
@@ -47,13 +45,13 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Materiales
 
             txtDescripcion.Text = material.Descripcion;
 
-            chkEstado.IsChecked = material.Estado;
+            chkActivo.IsChecked = material.Activo;
 
         }
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Material updatedMaterial = new Material(material.Id, txtNombre.Text,Decimal.Parse(txtPrecioUnidad.Text), txtDescripcion.Text, chkEstado.IsChecked ?? false);
+            Material updatedMaterial = new Material(material.Id, txtNombre.Text,Decimal.Parse(txtPrecioUnidad.Text), txtDescripcion.Text, chkActivo.IsChecked ?? false);
 
             string message = materialController.Update(updatedMaterial);
 
@@ -66,22 +64,13 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Materiales
 
         }
 
-        // =====================================================
-        // CANCEL
-        // =====================================================
-
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
 
         {
             Close();
         }
 
-        // =====================================================
-        // CLEAR ACTIVE TEXTBOX WITH ESC
-        // =====================================================
-
-        private void TextBox_KeyDown(object sender,
-                                     KeyEventArgs e)
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             {
