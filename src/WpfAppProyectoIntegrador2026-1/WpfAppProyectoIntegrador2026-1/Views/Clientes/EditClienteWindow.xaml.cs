@@ -56,9 +56,12 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
             Cliente updatedCliente = new Cliente(cliente.Id, txtNombre.Text, txtIdentificacion.Text, txtTelefono.Text, txtTelefono.Text);
            
             string message = clienteController.Update(updatedCliente);
-            
-            MessageBox.Show(message);
 
+            //MessageBox.Show(message);
+
+            AlertWindow alertWindow = new AlertWindow("Información", message, AlertType.Info);
+            alertWindow.ShowDialog();
+            
             if (message == "Cliente updated successfully.")
             {
                 Close();
@@ -66,22 +69,12 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
 
         }
 
-        // =====================================================
-        // CANCEL
-        // =====================================================
-
-        private void BtnCancel_Click(object sender,
-                                     RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        // =====================================================
-        // CLEAR ACTIVE TEXTBOX WITH ESC
-        // =====================================================
-
-        private void TextBox_KeyDown(object sender,
-                                     KeyEventArgs e)
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             {

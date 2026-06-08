@@ -1,249 +1,88 @@
 ﻿<UserControl x:Class="WpfAppProyectoIntegrador2026_1.Views.MaterialesView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WpfAppProyectoIntegrador2026_1.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
 
-    <UserControl.Resources>
+    <Grid Background="{StaticResource MainBackground}">
 
-        <!-- TEXTBOX MODERNO -->
-        <Style x:Key="ModernTextBox"
-               TargetType="TextBox">
-
-            <Setter Property="Height" Value="38"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Padding" Value="12,5"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="#D1D5DB"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Foreground" Value="#111827"/>
-
-            <Setter Property="Template">
-
-                <Setter.Value>
-
-                    <ControlTemplate TargetType="TextBox">
-
-                        <Border CornerRadius="10"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-
-                            <ScrollViewer x:Name="PART_ContentHost"
-                                          Margin="2"/>
-
-                        </Border>
-
-                    </ControlTemplate>
-
-                </Setter.Value>
-
-            </Setter>
-
-        </Style>
-
-        <!-- BOTÓN PRINCIPAL -->
-        <Style x:Key="PrimaryButton"
-               TargetType="Button">
-
-            <Setter Property="Height" Value="38"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#2563EB"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Padding" Value="15,5"/>
-
-            <Setter Property="Template">
-
-                <Setter.Value>
-
-                    <ControlTemplate TargetType="Button">
-
-                        <Border CornerRadius="10"
-                                Background="{TemplateBinding Background}">
-
-                            <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
-
-                        </Border>
-
-                    </ControlTemplate>
-
-                </Setter.Value>
-
-            </Setter>
-
-            <Style.Triggers>
-
-                <Trigger Property="IsMouseOver"
-                         Value="True">
-
-                    <Setter Property="Background"
-                            Value="#1D4ED8"/>
-
-                </Trigger>
-
-            </Style.Triggers>
-
-        </Style>
-
-        <!-- BOTÓN EDITAR -->
-        <Style x:Key="EditButton"
-               TargetType="Button">
-
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#10B981"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Cursor" Value="Hand"/>
-
-            <Setter Property="Template">
-
-                <Setter.Value>
-
-                    <ControlTemplate TargetType="Button">
-
-                        <Border CornerRadius="8"
-                                Background="{TemplateBinding Background}">
-
-                            <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
-
-                        </Border>
-
-                    </ControlTemplate>
-
-                </Setter.Value>
-
-            </Setter>
-
-            <Style.Triggers>
-
-                <Trigger Property="IsMouseOver"
-                         Value="True">
-
-                    <Setter Property="Background"
-                            Value="#059669"/>
-
-                </Trigger>
-
-            </Style.Triggers>
-
-        </Style>
-
-        <!-- DATAGRID -->
-        <Style TargetType="DataGrid">
-
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="#E5E7EB"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="RowBackground" Value="White"/>
-            <Setter Property="AlternatingRowBackground" Value="#F9FAFB"/>
-            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
-            <Setter Property="HeadersVisibility" Value="Column"/>
-            <Setter Property="FontSize" Value="13"/>
-
-        </Style>
-
-        <!-- HEADER DATAGRID -->
-        <Style TargetType="DataGridColumnHeader">
-
-            <Setter Property="Background" Value="#F3F4F6"/>
-            <Setter Property="Foreground" Value="#111827"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="BorderBrush" Value="#E5E7EB"/>
-            <Setter Property="BorderThickness" Value="0,0,0,1"/>
-
-        </Style>
-
-    </UserControl.Resources>
-
-    <Grid Background="#F5F7FA">
-
-        <Border Margin="15"
-                Padding="20"
-                CornerRadius="15"
-                Background="White">
+        <Border Style="{StaticResource CardStyle}"
+                Margin="15"
+                Padding="20">
 
             <Grid>
 
-                <!-- FILAS -->
                 <Grid.RowDefinitions>
-
-                    <!-- Barra superior -->
                     <RowDefinition Height="Auto"/>
-
-                    <!-- Tabla -->
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
-
                 </Grid.RowDefinitions>
 
-                <!-- BARRA SUPERIOR -->
-                <DockPanel Margin="0,0,0,20">
+                <TextBlock Grid.Row="0"
+                           Text="Gestión de Materiales"
+                           FontSize="35"
+                           FontWeight="Bold"
+                           Margin="10,0,0,20"
+                           Foreground="{StaticResource PrimaryText}"/>
 
-                    <!-- BOTÓN AGREGAR -->
-                    <Button Content="Agregar Material"
-                            Width="170"
-                            Style="{StaticResource PrimaryButton}"
-                            HorizontalAlignment="Right"
-                            Click="BtnAdd_Click"
-                            DockPanel.Dock="Right"/>
+                <Grid Grid.Row="1"
+                      Margin="0,0,0,20">
 
-                    <!-- BUSCADOR -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
                     <TextBox x:Name="txtSearch"
                              Width="320"
-                             Style="{StaticResource ModernTextBox}"
-                             VerticalContentAlignment="Center"
-                             Margin="0,0,10,0"
+                             HorizontalAlignment="Left"
+                             Tag="Buscar material..."
+                             Style="{StaticResource SearchTextBox}"
                              TextChanged="TxtSearch_TextChanged"/>
 
-                </DockPanel>
+                    <Button Grid.Column="1"
+                            Content="Agregar Material"
+                            Width="170"
+                            Style="{StaticResource PrimaryButton}"
+                            Click="BtnAdd_Click"/>
 
-                <!-- TABLA -->
+                </Grid>
+
                 <DataGrid x:Name="tableMateriales"
-                          Grid.Row="1"
+                          Grid.Row="2"
                           AutoGenerateColumns="False"
                           CanUserAddRows="False"
                           IsReadOnly="True"
-                          RowHeight="45"
-                          BorderThickness="0">
+                          BorderThickness="0"
+                          SelectionMode="Single"
+                          HorizontalGridLinesBrush="#E5E7EB">
 
                     <DataGrid.Columns>
 
-                        <!-- ID -->
                         <DataGridTextColumn Header="ID"
                                             Binding="{Binding Id}"
-                                            Width="220"/>
+                                            Width="120"/>
 
-                        <!-- NOMBRE -->
                         <DataGridTextColumn Header="Nombre"
                                             Binding="{Binding Nombre}"
                                             Width="*"/>
 
-                        <!-- IDENTIFICACIÓN -->
                         <DataGridTextColumn Header="Precio Unidad"
                                             Binding="{Binding PrecioUnidad}"
                                             Width="180"/>
 
-                        <!-- TELÉFONO -->
-                        <DataGridTextColumn Header="Estado"
+                        <DataGridTextColumn Header="Descripción"
                                             Binding="{Binding Descripcion}"
-                                            Width="150"/>
-
-                        <!-- CORREO -->
-                        <DataGridTextColumn Header="Correo"
-                                            Binding="{Binding Estado}"
                                             Width="250"/>
 
-                        <!-- ACCIONES -->
+                        <DataGridTextColumn Header="Estado"
+                                            Binding="{Binding Estado}"
+                                            Width="120"/>
+
                         <DataGridTemplateColumn Header="Acciones"
                                                 Width="120">
 
@@ -252,8 +91,8 @@
                                 <DataTemplate>
 
                                     <Button Content="Editar"
-                                            Width="85"
-                                            Style="{StaticResource EditButton}"
+                                            Width="90"
+                                            Style="{StaticResource GridButton}"
                                             Click="BtnEdit_Click"/>
 
                                 </DataTemplate>
@@ -271,4 +110,5 @@
         </Border>
 
     </Grid>
+
 </UserControl>

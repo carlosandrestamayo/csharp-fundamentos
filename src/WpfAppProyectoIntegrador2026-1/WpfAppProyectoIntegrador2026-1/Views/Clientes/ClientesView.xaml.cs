@@ -46,16 +46,10 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(
-                //    ex.Message,
-                //    "Error",
-                //    MessageBoxButton.OK,
-                //    MessageBoxImage.Error
-                //);
-                AlertWindow alert = new AlertWindow("Error",ex.Message);
+                AlertWindow alert = new AlertWindow("Error",ex.Message, AlertType.Error);
                 alert.ShowDialog();
             }
-}
+        }
 
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -94,7 +88,6 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             AddClienteWindow addClienteWindow = new AddClienteWindow();
-
 
             addClienteWindow.ShowDialog();
 

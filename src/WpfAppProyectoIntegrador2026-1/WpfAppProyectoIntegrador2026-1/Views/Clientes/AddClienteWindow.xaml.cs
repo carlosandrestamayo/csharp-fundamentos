@@ -29,53 +29,29 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Clientes
             txtIdentificacion.KeyDown += TextBox_KeyDown;
             txtTelefono.KeyDown += TextBox_KeyDown;
             txtCorreo.KeyDown += TextBox_KeyDown;
-
-            //txtNombre.TextChanged += TextBox_TextChanged;
-            //txtIdentificacion.TextChanged += TextBox_TextChanged;
         }
 
-        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtNombre.Text))
-        //    {
-        //        lblNombre.Visibility =
-        //        Visibility.Visible;
-        //    }
-        //    else
-        //    {
-        //        lblNombre.Visibility =
-        //        Visibility.Hidden;
-        //    }
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
 
-        //    if (string.IsNullOrWhiteSpace(txtIdentificacion.Text))
-        //    {
-        //        lblIdentificacion.Visibility =
-        //        Visibility.Visible;
-        //    }
-        //    else
-        //    {
-        //        lblIdentificacion.Visibility =
-        //        Visibility.Hidden;
-        //    }
-        //}
-
-        private void BtnSave_Click(object sender,
-                               RoutedEventArgs e)
         {
             Cliente cliente = new Cliente(Guid.NewGuid(), txtNombre.Text, txtIdentificacion.Text, txtTelefono.Text, txtCorreo.Text);         
             
             string message = clienteController.Add(cliente);
-
-            MessageBox.Show(message);
-
+            
             if (message == "Cliente added successfully.")
             {
+                var alertWindow = new AlertWindow("Success", message, AlertType.Success);
+                alertWindow.ShowDialog();
                 Close();
+            }
+            else
+            {
+                var alertWindow = new AlertWindow("Warning", message, AlertType.Warning);
+                alertWindow.ShowDialog();
             }
         }
 
-        private void BtnCancel_Click(object sender,
-                                RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }

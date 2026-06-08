@@ -5,30 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProyectoIntegrador2026_1"
         mc:Ignorable="d"
-
         Title="Sistema de Gestión"
-
-        Height="700"
         Width="1200"
-
+        Height="700"
+        WindowState="Maximized"
         Background="{StaticResource MainBackground}">
 
     <Grid>
 
-        <!-- COLUMNAS -->
         <Grid.ColumnDefinitions>
-
-            <!-- SIDEBAR -->
             <ColumnDefinition Width="240"/>
-
-            <!-- CONTENIDO -->
             <ColumnDefinition Width="*"/>
-
         </Grid.ColumnDefinitions>
-
-        <!-- ===================================================== -->
-        <!-- SIDEBAR -->
-        <!-- ===================================================== -->
 
         <Border Grid.Column="0"
                 Background="{StaticResource SidebarBackground}">
@@ -36,21 +24,10 @@
             <Grid>
 
                 <Grid.RowDefinitions>
-
-                    <!-- HEADER -->
                     <RowDefinition Height="Auto"/>
-
-                    <!-- MENÚ -->
                     <RowDefinition Height="*"/>
-
-                    <!-- FOOTER -->
                     <RowDefinition Height="Auto"/>
-
                 </Grid.RowDefinitions>
-
-                <!-- ===================================================== -->
-                <!-- HEADER -->
-                <!-- ===================================================== -->
 
                 <StackPanel Margin="25">
 
@@ -65,72 +42,66 @@
 
                 </StackPanel>
 
-                <!-- ===================================================== -->
-                <!-- MENÚ -->
-                <!-- ===================================================== -->
-
                 <StackPanel Grid.Row="1"
                             Margin="0,20,0,0">
 
-                    <Button Content="🏠  Dashboard"
+                    <Button x:Name="btnDashboard"
+                            Content="🏠 Dashboard"
                             Style="{StaticResource MenuButton}"
                             Click="BtnDashboard_Click"/>
 
-                    <Button Content="👥  Clientes"
+                    <Button x:Name="btnClientes"
+                            Content="👥 Clientes"
                             Style="{StaticResource MenuButton}"
                             Click="BtnClientes_Click"/>
 
-                    <Button Content="📦  Materiales"
+                    <Button x:Name="btnMateriales"
+                            Content="📦 Materiales"
                             Style="{StaticResource MenuButton}"
                             Click="BtnMateriales_Click"/>
 
-                    <Button Content="📄  Cotizaciones"
+                    <Button x:Name="btnCotizaciones"
+                            Content="📄 Cotizaciones"
                             Style="{StaticResource MenuButton}"
                             Click="BtnCotizaciones_Click"/>
 
-                    <Button Content="🧾  Facturas"
+                    <Button x:Name="btnFacturas"
+                            Content="🧾 Facturas"
                             Style="{StaticResource MenuButton}"
                             Click="BtnFacturas_Click"/>
-                    
+
                     <Button x:Name="btnUsuarios"
-                            Content="🔐  Usuarios"
+                            Content="🔐 Usuarios"
                             Style="{StaticResource MenuButton}"
                             Click="BtnUsuarios_Click"/>
 
                     <Button x:Name="btnChangePassword"
-                            Content="🔐  Cambiar Contraseña"
+                            Content="🔑 Cambiar Contraseña"
                             Style="{StaticResource MenuButton}"
                             Click="BtnChangePassword_Click"/>
 
                 </StackPanel>
 
-                <!-- ===================================================== -->
-                <!-- FOOTER -->
-                <!-- ===================================================== -->
-
                 <Border Grid.Row="2"
-                        Style="{StaticResource CardStyle}"
                         Margin="15"
                         Background="#1F2937"
-                        BorderThickness="0">    
+                        BorderThickness="0"
+                        Style="{StaticResource CardStyle}">
 
                     <StackPanel>
 
-                        <!-- USUARIO -->
                         <TextBlock x:Name="txtUserName"
-                                    Text="Usuario"
-                                    Foreground="{StaticResource WhiteText}"
-                                    FontWeight="SemiBold"
-                                    FontSize="14"/>  
+                                   Text="Usuario"
+                                   FontSize="14"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource WhiteText}"/>
 
-                        <!-- ROL -->
                         <TextBlock x:Name="txtUserRole"
-                                    Text="Rol"
-                                    Style="{StaticResource MutedText}"
-                                    Foreground="{StaticResource SecondaryText}"
-                                    Margin="0,5,0,15"/>  
+                                   Text="Rol"
+                                   Margin="0,5,0,15"
+                                   Style="{StaticResource MutedText}"
+                                   Foreground="{StaticResource SecondaryText}"/>
 
-                        <!-- LOGOUT -->
                         <Button x:Name="btnLogout"
                                 Content="🚪 Cerrar Sesión"
                                 Style="{StaticResource SecondaryButton}"
@@ -139,19 +110,16 @@
                     </StackPanel>
 
                 </Border>
+
             </Grid>
 
         </Border>
 
-        <!-- ===================================================== -->
-        <!-- CONTENIDO -->
-        <!-- ===================================================== -->
-
         <Grid Grid.Column="1"
               Background="{StaticResource MainBackground}">
 
-            <Border Style="{StaticResource CardStyle}"
-                    Margin="15">
+            <Border Margin="15"
+                    Style="{StaticResource CardStyle}">
 
                 <ContentControl x:Name="Contenedor"/>
 

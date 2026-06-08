@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProyectoIntegrador2026_1.Views"
         mc:Ignorable="d"
-        Title="" Height="180" Width="400"
+        Title="" Height="580" Width="400"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         WindowStyle="None"
@@ -35,7 +35,8 @@
                 <StackPanel Orientation="Horizontal">
 
                     <!-- ICON -->
-                    <Border Width="50"
+                    <Border Name="brdIcon"
+                            Width="50"
                             Height="50"
                             CornerRadius="25"
                             Background="{StaticResource DangerColor}">
@@ -79,10 +80,11 @@
                             HorizontalAlignment="Right"
                             Margin="0,25,0,0">
 
-                    <Button Content="Aceptar"
+                    <Button Name="btnAccept"
+                            Content="Aceptar"
                             Width="120"
                             Style="{StaticResource DangerButton}"
-                            Click="BtnAceptar_Click"/>
+                            Click="BtnAcept_Click"/>
 
                 </StackPanel>
 

@@ -100,13 +100,9 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Shared
 
             if (cliente == null)
             {
-                AlertWindow alert =
-                    new AlertWindow(
-                        "Información",
-                        "Seleccione un cliente."
-                    );
-
-                alert.ShowDialog();
+                var alertWindow = new AlertWindow("Información", "Seleccione un cliente.", AlertType.Info);
+                
+                alertWindow.ShowDialog();
 
                 return;
             }

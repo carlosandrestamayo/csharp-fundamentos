@@ -71,7 +71,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Authentication
                 AlertWindow alert =
                     new AlertWindow(
                         "Información",
-                        "La contraseña fue actualizada correctamente."
+                        "La contraseña fue actualizada correctamente.", AlertType.Info
                     );
 
                 alert.ShowDialog();
@@ -83,7 +83,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Authentication
                 AlertWindow alert =
                     new AlertWindow(
                         "Error",
-                        ex.Message
+                        ex.Message, AlertType.Error
                     );
 
                 alert.ShowDialog();

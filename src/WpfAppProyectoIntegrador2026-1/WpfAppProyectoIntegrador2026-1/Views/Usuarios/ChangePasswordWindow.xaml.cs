@@ -63,23 +63,15 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
 
                 usuarioController.ResetPassword(usuario.Id, password);
                 
-                AlertWindow alert =
-                    new AlertWindow(
-                        "Información",
-                        "La contraseña fue restablecida correctamente."
-                    );
+                AlertWindow alertWindow = new AlertWindow("Información", "La contraseña fue restablecida correctamente.", AlertType.Info);
 
-                alert.ShowDialog();
+                alertWindow.ShowDialog();
 
                 Close();
             }
             catch (Exception ex)
             {
-                AlertWindow alert =
-                    new AlertWindow(
-                        "Error",
-                        ex.Message
-                    );
+                AlertWindow alert = new AlertWindow("Error", ex.Message, AlertType.Error);
 
                 alert.ShowDialog();
             }

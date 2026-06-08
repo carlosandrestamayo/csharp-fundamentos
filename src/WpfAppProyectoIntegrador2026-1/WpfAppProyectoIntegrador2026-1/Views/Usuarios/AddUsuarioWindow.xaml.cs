@@ -41,10 +41,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
             {
                 if (clienteSeleccionado == null)
                 {
-                    AlertWindow alert = new AlertWindow(
-                        "Información",
-                        "Debe seleccionar un cliente."
-                    );
+                    AlertWindow alert = new AlertWindow("Información", "Debe seleccionar un cliente.", AlertType.Info);
 
                     alert.ShowDialog();
 
@@ -67,13 +64,9 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
 
                 string message = usuarioController.Add(usuario, password);
 
+                AlertWindow alertWindow = new AlertWindow("Información", message, AlertType.Info);
 
-                AlertWindow success = new AlertWindow(
-                    "Información",
-                    message
-                );
-
-                success.ShowDialog();
+                alertWindow.ShowDialog();
 
                 if (message == "User registered successfully.")
                 {
@@ -82,12 +75,9 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
             }
             catch (Exception ex)
             {
-                AlertWindow alert = new AlertWindow(
-                    "Error",
-                    ex.Message
-                );
+                var alertWindow = new AlertWindow("Error", ex.Message, AlertType.Error);
 
-                alert.ShowDialog();
+                alertWindow.ShowDialog();
             }
         }
 

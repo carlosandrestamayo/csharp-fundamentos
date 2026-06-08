@@ -27,49 +27,56 @@ namespace WpfAppProyectoIntegrador2026_1
         {
             InitializeComponent();
 
-            // Vista inicial
             Contenedor.Content = new DashboardView();
 
             LoadUserInfo();
 
             ApplyPermissions();
+
         }
 
         private void BtnDashboard_Click(object sender, RoutedEventArgs e)
         {
+            ActivateMenuButton(btnDashboard);
             Contenedor.Content = new DashboardView();
         }
 
         private void BtnClientes_Click(object sender, RoutedEventArgs e)
         {
+            ActivateMenuButton(btnClientes);
             Contenedor.Content = new ClientesView();
         }
 
         private void BtnMateriales_Click(object sender, RoutedEventArgs e)
         {
+            ActivateMenuButton(btnMateriales);
             Contenedor.Content = new MaterialesView();
 
-            MaterialRepository materialRepository = new MaterialRepository();
+            //MaterialRepository materialRepository = new MaterialRepository();
             //materialRepository.Leer();
         }
 
         private void BtnCotizaciones_Click(object sender, RoutedEventArgs e)
         {
+            ActivateMenuButton(btnCotizaciones);
             Contenedor.Content = new CotizacionesView();
         }
 
         private void BtnFacturas_Click(object sender, RoutedEventArgs e)
         {
+            ActivateMenuButton(btnFacturas);
             Contenedor.Content = new FacturasView();
         }
 
         private void BtnUsuarios_Click(object sender, RoutedEventArgs e)
         {
+            ActivateMenuButton(btnUsuarios);
             Contenedor.Content = new UsuariosView();
         }
 
         private void BtnChangePassword_Click(object sender, RoutedEventArgs e)
         {
+            ActivateMenuButton(btnChangePassword);
             ChangeMyPasswordWindow changeMyPasswordWindow = new ChangeMyPasswordWindow();
             changeMyPasswordWindow.ShowDialog();
         }
@@ -119,5 +126,36 @@ namespace WpfAppProyectoIntegrador2026_1
             }
         }
 
+        private void ActivateMenuButton(Button activeButton)
+        {
+            Brush sidebarColor =
+                (Brush)Application.Current.Resources["SidebarBackground"];
+
+            Brush primaryColor =
+                (Brush)Application.Current.Resources["PrimaryColor"];
+
+            foreach (var control in LogicalTreeHelper.GetChildren(this))
+            {
+                // No sirve para recorrer profundamente
+            }
+
+            Button[] buttons =
+            {
+                btnDashboard,
+                btnClientes,
+                btnMateriales,
+                btnCotizaciones,
+                btnFacturas,
+                btnUsuarios,
+                btnChangePassword
+            };
+
+            foreach (Button button in buttons)
+            {
+                button.Background = sidebarColor;
+            }
+
+            activeButton.Background = primaryColor;
+        }
     }
 }

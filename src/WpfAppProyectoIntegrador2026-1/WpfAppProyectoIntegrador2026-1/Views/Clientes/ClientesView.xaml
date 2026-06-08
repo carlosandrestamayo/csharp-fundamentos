@@ -10,113 +10,74 @@
 
     <Grid Background="{StaticResource MainBackground}">
 
-        <!-- CARD PRINCIPAL -->
         <Border Style="{StaticResource CardStyle}"
-
                 Margin="15"
-
                 Padding="20">
 
             <Grid>
 
-                <!-- ===================================================== -->
-                <!-- FILAS -->
-                <!-- ===================================================== -->
-
                 <Grid.RowDefinitions>
-
-                    <!-- HEADER -->
                     <RowDefinition Height="Auto"/>
-
-                    <!-- TABLA -->
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
-
                 </Grid.RowDefinitions>
 
-                <!-- ===================================================== -->
-                <!-- HEADER -->
-                <!-- ===================================================== -->
+                <TextBlock Grid.Row="0"
+                           Text="Gestión de Clientes"
+                           FontSize="35"
+                           FontWeight="Bold"
+                           Margin="10,0,0,20"
+                           Foreground="{StaticResource PrimaryText}"/>
 
-                <Grid Margin="0,0,0,20">
+                <Grid Grid.Row="1"
+                      Margin="0,0,0,20">
 
                     <Grid.ColumnDefinitions>
-
                         <ColumnDefinition Width="*"/>
-
                         <ColumnDefinition Width="Auto"/>
-
                     </Grid.ColumnDefinitions>
 
-                    <!-- BUSCADOR -->
                     <TextBox x:Name="txtSearch"
-
                              Width="320"
-
                              HorizontalAlignment="Left"
-
                              Tag="Buscar cliente..."
-
                              Style="{StaticResource SearchTextBox}"
-
                              TextChanged="TxtSearch_TextChanged"/>
 
-                    <!-- BOTÓN -->
                     <Button Grid.Column="1"
-
                             Content="Agregar Cliente"
-
                             Width="170"
-
                             Style="{StaticResource PrimaryButton}"
-
                             Click="BtnAdd_Click"/>
 
                 </Grid>
 
-                <!-- ===================================================== -->
-                <!-- TABLA -->
-                <!-- ===================================================== -->
-
                 <DataGrid x:Name="tableClientes"
-
-                          Grid.Row="1"
-
+                          Grid.Row="2"
                           CanUserAddRows="False"
-
                           IsReadOnly="True"
-
                           BorderThickness="0"
-
-                          SelectionMode="Single">
+                          SelectionMode="Single"
+                          HorizontalGridLinesBrush="#E5E7EB">
 
                     <DataGrid.Columns>
 
-                        <!-- ID -->
-                        <!--<DataGridTextColumn Header="ID"
-                                            Binding="{Binding Id}"
-                                            Width="220"/>-->
-
-                        <!-- NOMBRE -->
                         <DataGridTextColumn Header="Nombre"
                                             Binding="{Binding Nombre}"
                                             Width="*"/>
 
-                        <!-- IDENTIFICACIÓN -->
                         <DataGridTextColumn Header="Identificación"
                                             Binding="{Binding Identificacion}"
                                             Width="180"/>
 
-                        <!-- TELÉFONO -->
                         <DataGridTextColumn Header="Teléfono"
                                             Binding="{Binding Telefono}"
                                             Width="150"/>
 
-                        <!-- CORREO -->
                         <DataGridTextColumn Header="Correo"
                                             Binding="{Binding Correo}"
                                             Width="250"/>
 
-                        <!-- ACCIONES -->
                         <DataGridTemplateColumn Header="Acciones"
                                                 Width="120">
 
@@ -125,11 +86,8 @@
                                 <DataTemplate>
 
                                     <Button Content="Editar"
-
                                             Width="90"
-
                                             Style="{StaticResource GridButton}"
-
                                             Click="BtnEdit_Click"/>
 
                                 </DataTemplate>

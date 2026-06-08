@@ -58,9 +58,9 @@ namespace WpfAppProyectoIntegrador2026_1.Models
 
             Detalles = detalles;
 
-            Total = detalles.Sum(
-                detalle => detalle.Subtotal
-            );
+            Total = detalles.Sum(detalle => detalle.Subtotal);
+
+
         }
     }
     public enum EstadoCotizacion

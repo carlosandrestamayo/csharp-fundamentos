@@ -42,10 +42,9 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
             }
             catch (Exception ex)
             {
-                AlertWindow alert =
-                    new AlertWindow("Error", ex.Message);
+                AlertWindow alertWindow = new AlertWindow("Error", ex.Message, AlertType.Error);
 
-                alert.ShowDialog();
+                alertWindow.ShowDialog();
             }
         }
 
