@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfAppProyectoIntegrador2026_1.Controllers;
 using WpfAppProyectoIntegrador2026_1.Models;
+using WpfAppProyectoIntegrador2026_1.Models.Enums;
 using WpfAppProyectoIntegrador2026_1.Security;
 
 namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios

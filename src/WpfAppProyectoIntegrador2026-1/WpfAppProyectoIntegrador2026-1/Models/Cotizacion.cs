@@ -1,74 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Text.Json.Serialization;
+using WpfAppProyectoIntegrador2026_1.Models.Enums;
 
 namespace WpfAppProyectoIntegrador2026_1.Models
 {
     public class Cotizacion
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.Empty;
 
-        // Consecutivo visible para el usuario
         public int Numero { get; set; }
 
-        public Cliente Cliente { get; set; }
+        public Cliente? Cliente { get; set; }
 
-        // Volumen calculado del terreno
-        public decimal Volumen { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
 
-        // Total de la cotización
-        public decimal Total { get; set; }
+        public EstadoCotizacion Estado { get; set; } = EstadoCotizacion.Activa;
 
-        // Fecha de creación
-        public DateTime Fecha { get; set; }
+        public List<CotizacionDetalle> Detalles { get; set; } =
+            new();
 
-        public EstadoCotizacion Estado { get; set; }
-
-        public List<CotizacionDetalle> Detalles { get; set; }
-
-        public Cotizacion()
+        [JsonIgnore]
+        public decimal Total
         {
-            //Cliente = new Cliente();
-
-            Detalles = new List<CotizacionDetalle>();
-
-            Fecha = DateTime.Now;
+            get
+            {
+                return Detalles.Sum(detalle => detalle.Subtotal);
+            }
         }
 
+        [JsonIgnore]
+        public string FormattedNumber
+        {
+            get
+            {
+                return $"COT-{Numero:D6}";
+            }
+        }
+
+        [JsonConstructor]
         public Cotizacion(
             Guid id,
             int numero,
-            Cliente cliente,
-            decimal volumen,
+            Cliente? cliente,
+            DateTime fecha,
             EstadoCotizacion estado,
-            List<CotizacionDetalle> detalles
-        )
+            List<CotizacionDetalle> detalles)
         {
             Id = id;
-
             Numero = numero;
-
             Cliente = cliente;
-
-            Volumen = volumen;
-
+            Fecha = fecha;
             Estado = estado;
+            Detalles = detalles ?? new();
+        }
 
-            Fecha = DateTime.Now;
-
-            Detalles = detalles;
-
-            Total = detalles.Sum(detalle => detalle.Subtotal);
-
-
+        public Cotizacion()
+        {
         }
     }
-    public enum EstadoCotizacion
-    {
-        Activa,
 
-        Inactiva,
-
-        Facturada
-    }
 }

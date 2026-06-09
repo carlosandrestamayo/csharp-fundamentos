@@ -7,15 +7,15 @@ namespace WpfAppProyectoIntegrador2026_1.Models
 {
     public class Material
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; }  = Guid.Empty;
 
-        public string Nombre { get; set; }
+        public string Nombre { get; set; } = string.Empty;
 
-        public decimal PrecioUnidad { get; set; }
+        public decimal PrecioUnidad { get; set; } = 0;
 
         public string Descripcion { get; set; } = string.Empty;
 
-        public bool Activo { get; set; }
+        public bool Activo { get; set; } = true;
 
         
         [JsonIgnore]
@@ -35,6 +35,11 @@ namespace WpfAppProyectoIntegrador2026_1.Models
             PrecioUnidad = precioUnidad;
             Descripcion = descripcion;
             Activo = activo;
+        }
+
+        public Material()
+        {
+            
         }
     }
 }

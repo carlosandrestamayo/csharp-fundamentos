@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using WpfAppProyectoIntegrador2026_1.Controllers;
 using WpfAppProyectoIntegrador2026_1.Models;
+using WpfAppProyectoIntegrador2026_1.Models.Enums;
 
 namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
 {
@@ -33,7 +34,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
             {
                 usuariosList = usuarioController
                                 .GetAll()
-                                .Where(user => user.Rol == Rol.Operador)
+                                .Where(user => user.Rol == RolUsuario.Operador)
                                 .ToList();
 
                 tableUsuarios.ItemsSource = null;

@@ -21,7 +21,8 @@ namespace WpfAppProyectoIntegrador2026_1.Views
     {
         private ClienteController clienteController = new ClienteController();
         private MaterialController materialController = new MaterialController();
-        
+        private CotizacionController cotizacionController = new CotizacionController();
+        private FacturaController facturaController = new FacturaController();
         public DashboardView()
         {
             InitializeComponent();
@@ -29,6 +30,10 @@ namespace WpfAppProyectoIntegrador2026_1.Views
             txtTotalClientes.Text = clienteController.GetAll().Count.ToString();
 
             txtTotalMateriales.Text = materialController.GetAll().Count.ToString();
+
+            txtTotalCotizaciones.Text = cotizacionController.GetAll().Count.ToString();
+
+            //txtTotalFacturas.Text = facturaController.GetAll().Count.ToString();
         }
     }
 }

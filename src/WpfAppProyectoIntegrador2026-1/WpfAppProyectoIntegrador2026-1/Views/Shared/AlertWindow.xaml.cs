@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfAppProyectoIntegrador2026_1.Models.Enums;
 
 namespace WpfAppProyectoIntegrador2026_1.Views
 {
@@ -66,11 +67,5 @@ namespace WpfAppProyectoIntegrador2026_1.Views
         }
     }
 
-    public enum AlertType
-    {
-        Success,
-        Error,
-        Warning,
-        Info
-    }
+    
 }

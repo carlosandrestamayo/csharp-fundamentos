@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfAppProyectoIntegrador2026_1.Controllers;
 using WpfAppProyectoIntegrador2026_1.Models;
+using WpfAppProyectoIntegrador2026_1.Models.Enums;
 using WpfAppProyectoIntegrador2026_1.Security;
 using WpfAppProyectoIntegrador2026_1.Views.Shared;
 
@@ -57,7 +58,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
                     clienteSeleccionado.Identificacion,
                     String.Empty,
                     true,
-                    Rol.Operador
+                    RolUsuario.Operador
                 );
 
                 string password = txtPassword.Text;

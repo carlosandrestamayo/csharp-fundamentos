@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using WpfAppProyectoIntegrador2026_1.Models;
+using WpfAppProyectoIntegrador2026_1.Models.Enums;
 using WpfAppProyectoIntegrador2026_1.Repositorys;
 
 namespace WpfAppProyectoIntegrador2026_1.Security
@@ -30,7 +31,7 @@ namespace WpfAppProyectoIntegrador2026_1.Security
                 "admin",
                 PasswordHasher.HashPassword("admin123"),
                 true,
-                Rol.Administrador
+                RolUsuario.Administrador
             );
 
             usuarioRepository.Add(admin);

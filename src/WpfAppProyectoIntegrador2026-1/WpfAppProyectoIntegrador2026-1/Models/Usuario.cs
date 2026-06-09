@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
+using WpfAppProyectoIntegrador2026_1.Models.Enums;
 
 namespace WpfAppProyectoIntegrador2026_1.Models
 {
@@ -11,9 +12,9 @@ namespace WpfAppProyectoIntegrador2026_1.Models
 
         public string PasswordHash { get; set; } = string.Empty;
 
-        public bool Activo { get; set; }
+        public bool Activo { get; set; } = true;
 
-        public Rol Rol { get; set; }
+        public RolUsuario Rol { get; set; }
 
         public DateTime CreatedAt { get; set; }
 
@@ -36,7 +37,7 @@ namespace WpfAppProyectoIntegrador2026_1.Models
             string username,
             string passwordHash,
             bool activo,
-            Rol rol
+            RolUsuario rol
         ) : base(id,
                  nombre,
                  identificacion,
@@ -44,20 +45,12 @@ namespace WpfAppProyectoIntegrador2026_1.Models
                  correo)
         {
             Username = username;
-
             PasswordHash = passwordHash;
-
             Activo = activo;
-
             Rol = rol;
-
             CreatedAt = DateTime.Now;
         }
     }
 
-    public enum Rol
-    {
-        Administrador,
-        Operador
-    }
+    
 }

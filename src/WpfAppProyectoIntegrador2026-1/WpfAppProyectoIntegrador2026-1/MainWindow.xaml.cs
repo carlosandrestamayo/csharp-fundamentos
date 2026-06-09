@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfAppProyectoIntegrador2026_1.Models;
+using WpfAppProyectoIntegrador2026_1.Models.Enums;
 using WpfAppProyectoIntegrador2026_1.Repositorys;
 using WpfAppProyectoIntegrador2026_1.Security;
 using WpfAppProyectoIntegrador2026_1.Views;
@@ -116,12 +117,12 @@ namespace WpfAppProyectoIntegrador2026_1
                 return;
             }
 
-            if (usuario.Rol != Rol.Administrador)
+            if (usuario.Rol != RolUsuario.Administrador)
             {
                 btnUsuarios.Visibility = Visibility.Collapsed;
             }
 
-            if (usuario.Rol != Rol.Operador)
+            if (usuario.Rol != RolUsuario.Operador)
             {
                 btnChangePassword.Visibility = Visibility.Collapsed;
             }

@@ -19,10 +19,10 @@ namespace WpfAppProyectoIntegrador2026_1.Validators
                 return "Invalid quotation number.";
             }
 
-            if (cotizacion.Volumen <= 0)
-            {
-                return "Volume must be greater than zero.";
-            }
+            //if (cotizacion.Volumen <= 0)
+            //{
+            //    return "Volume must be greater than zero.";
+            //}
 
             if (cotizacion.Detalles == null || !cotizacion.Detalles.Any())
 
