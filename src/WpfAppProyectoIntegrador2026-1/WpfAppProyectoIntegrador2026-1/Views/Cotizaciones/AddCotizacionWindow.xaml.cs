@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using WpfAppProyectoIntegrador2026_1.Models;
 using WpfAppProyectoIntegrador2026_1.Views.Shared;
 
@@ -20,6 +10,8 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Cotizaciones
     public partial class AddCotizacionWindow : Window
     {
         private Cliente? clienteSeleccionado;
+
+        private Material? materialSeleccionado;
 
         public AddCotizacionWindow()
         {
@@ -48,8 +40,19 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Cotizaciones
 
         }
 
-        private void BtnAddMaterial_Click(object sender, RoutedEventArgs e)
+        private void BtnAddItem_Click(object sender, RoutedEventArgs e)
         {
+            AddCotizacionDetalleWindow addCotizacionDetalleWindow = new AddCotizacionDetalleWindow();
+
+            addCotizacionDetalleWindow.ShowDialog();
+            //SearchMaterialWindow searchMaterialWindow = new SearchMaterialWindow();
+
+            //bool? result = searchMaterialWindow.ShowDialog();
+
+            //if (result == true)
+            //{
+
+            //}
 
         }
         private void BtnDeleteDetail_Click(object sender, RoutedEventArgs e)

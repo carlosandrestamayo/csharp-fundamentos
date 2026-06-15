@@ -151,16 +151,16 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="Materiales"
+                        <TextBlock Text="Detalles de la Cotización"
                                    FontSize="18"
                                    FontWeight="SemiBold"
                                    VerticalAlignment="Center"/>
 
                         <Button Grid.Column="1"
                                 Width="170"
-                                Content="Agregar Material"
+                                Content="Agregar Item"
                                 Style="{StaticResource PrimaryButton}"
-                                Click="BtnAddMaterial_Click"/>
+                                Click="BtnAddItem_Click" Height="40" Margin="5,5,5,0" VerticalAlignment="Top"/>
 
                     </Grid>
 

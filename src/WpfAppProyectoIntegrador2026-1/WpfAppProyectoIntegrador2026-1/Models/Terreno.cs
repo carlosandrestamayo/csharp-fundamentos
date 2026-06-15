@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace WpfAppProyectoIntegrador2026_1.Models
 {
-    public class Terreno
+    public class TerrenoFile
     {
         public Guid Id { get; set; } = Guid.Empty;
 
@@ -17,7 +17,7 @@ namespace WpfAppProyectoIntegrador2026_1.Models
         public decimal Volumen { get; set; } = 0;
 
         [JsonConstructor]
-        public Terreno(Guid id, string nombre, string descripcion, List<Coordenada> coordenadas, decimal volumen)
+        public TerrenoFile(Guid id, string nombre, string descripcion, List<Coordenada> coordenadas, decimal volumen)
         {
             Id = id;
             Nombre = nombre;
@@ -26,7 +26,7 @@ namespace WpfAppProyectoIntegrador2026_1.Models
             Volumen = volumen;
         }
 
-        public Terreno()
+        public TerrenoFile()
         {
         }
     }

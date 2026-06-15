@@ -39,6 +39,15 @@ namespace WpfAppProyectoIntegrador2026_1.Models
             }
         }
 
+        [JsonIgnore]
+        public int DetailsCount
+        {
+            get
+            {
+                return Detalles.Count;
+            }
+        }
+
         [JsonConstructor]
         public Cotizacion(
             Guid id,

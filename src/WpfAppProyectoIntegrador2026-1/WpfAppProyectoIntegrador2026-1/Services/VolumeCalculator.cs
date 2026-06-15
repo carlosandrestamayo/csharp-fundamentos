@@ -7,11 +7,16 @@ namespace WpfAppProyectoIntegrador2026_1.Services
 {
     public static class VolumeCalculator
     {
-        public static decimal Calculate(Terreno terreno)
+        public static decimal Calculate(List<Coordenada> coordenadas)
         {
             // Aquí irá la lógica matemática
 
             return 0;
         }
+
+        //internal static decimal Calculate(List<Coordenada> coordenadas)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

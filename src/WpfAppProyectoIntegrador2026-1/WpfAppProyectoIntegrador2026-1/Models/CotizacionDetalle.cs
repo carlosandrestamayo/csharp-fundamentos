@@ -7,16 +7,36 @@ namespace WpfAppProyectoIntegrador2026_1.Models
     {
         public Guid Id { get; set; } = Guid.Empty;
 
-        public Terreno Terreno { get; set; } = new();
+        public int Cantidad { get; set; } = 1;
+
+        public TerrenoFile Terreno { get; set; } = new();
 
         public Material Material { get; set; } = new();
 
+        //[JsonIgnore]
+        //public decimal Volumen
+        //{
+        //    get
+        //    {
+        //        return Terreno.Volumen;
+        //    }
+        //}
+
         [JsonIgnore]
-        public decimal Volumen
+        public decimal VolumenUnitario
         {
             get
             {
                 return Terreno.Volumen;
+            }
+        }
+
+        [JsonIgnore]
+        public decimal VolumenTotal
+        {
+            get
+            {
+                return Cantidad * VolumenUnitario;
             }
         }
 
@@ -34,14 +54,15 @@ namespace WpfAppProyectoIntegrador2026_1.Models
         {
             get
             {
-                return Volumen * PrecioUnidad;
+                return VolumenTotal * PrecioUnidad;
             }
         }
 
         [JsonConstructor]
-        public CotizacionDetalle(Guid id, Terreno terreno, Material material)
+        public CotizacionDetalle(Guid id,int cantidad, TerrenoFile terreno, Material material)
         {
             Id = id;
+            Cantidad = cantidad;
             Terreno = terreno ?? new();
             Material = material ?? new();
         }

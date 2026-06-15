@@ -9,13 +9,13 @@ namespace WpfAppProyectoIntegrador2026_1.Models
     {
         public Guid Id { get; set; }
 
-        public string Nombre { get; set; }
+        public string Nombre { get; set; } = string.Empty;
 
-        public string Identificacion { get; set; }
+        public string Identificacion { get; set; } = string.Empty;
 
-        public string Telefono { get; set; }
+        public string Telefono { get; set; } = string.Empty;
 
-        public string Correo { get; set; }
+        public string Correo { get; set; } = string.Empty;
 
         [JsonConstructor]
         public Persona(Guid id, string nombre, string identificacion, string telefono, string correo)

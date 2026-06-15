@@ -61,5 +61,18 @@ namespace WpfAppProyectoIntegrador2026_1.Controllers
         {
             return cotizacionRepository.Find(id);
         }
+
+        private int GetNextNumber()
+        {
+            List<Cotizacion> cotizaciones = cotizacionRepository.GetAll();
+
+
+            if (!cotizaciones.Any())
+            {
+                return 1;
+            }
+
+            return cotizaciones.Max(c => c.Numero) + 1;
+        }
     }
 }

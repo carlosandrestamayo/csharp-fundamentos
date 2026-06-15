@@ -1,0 +1,262 @@
+﻿<Window x:Class="WpfAppProyectoIntegrador2026_1.Views.Cotizaciones.AddCotizacionDetalleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title=""
+        Width="850"
+        Height="650"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Background="{StaticResource MainBackground}">
+
+        <Border Style="{StaticResource CardStyle}"
+                Margin="20"
+                Padding="25">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="*"/>
+
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+
+                <!-- TÍTULO -->
+
+                <StackPanel Margin="0,0,0,25">
+
+                    <TextBlock Text="Agregar Detalle"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource PrimaryText}"/>
+
+                    <TextBlock Text="Registrar un terreno y material para la cotización"
+                               Margin="0,5,0,0"
+                               FontSize="14"
+                               Foreground="{StaticResource SecondaryText}"/>
+
+                </StackPanel>
+
+                <!-- TERRENO -->
+
+                <Border Grid.Row="1"
+                        Margin="0,0,0,20"
+                        Padding="15"
+                        BorderBrush="{StaticResource BorderColor}"
+                        BorderThickness="1"
+                        CornerRadius="10">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="Auto"/>
+
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Información del Terreno"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,15"/>
+
+                        <Grid Grid.Row="1">
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="*"/>
+
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="Auto"/>
+
+                                <RowDefinition Height="Auto"/>
+
+                                <RowDefinition Height="Auto"/>
+
+                            </Grid.RowDefinitions>
+
+                            <TextBox x:Name="txtTerrenoNombre"
+                                     Grid.Row="0"
+                                     Margin="0,0,10,10"
+                                     Tag="Nombre"
+                                     IsReadOnly="True"
+                                     Style="{StaticResource ModernTextBox}"/>
+
+                            <TextBox x:Name="txtTerrenoDescripcion"
+                                     Grid.Row="1"
+                                     Margin="0,0,10,10"
+                                     Tag="Descripción"
+                                     IsReadOnly="True"
+                                     Style="{StaticResource ModernTextBox}"/>
+
+                            <TextBox x:Name="txtVolumenUnitario"
+                                     Grid.Row="2"
+                                     Margin="0,0,10,0"
+                                     Tag="Volumen (m³)"
+                                     IsReadOnly="True"
+                                     Style="{StaticResource ModernTextBox}"/>
+
+                            <Button Grid.RowSpan="3"
+                                    Grid.Column="1"
+                                    Width="160"
+                                    Content="Buscar Terreno"
+                                    Style="{StaticResource PrimaryButton}"
+                                    Click="BtnSearchTerrain_Click"/>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Border>
+
+                <!-- MATERIAL -->
+
+                <Border Grid.Row="2"
+                        Margin="0,0,0,20"
+                        Padding="15"
+                        BorderBrush="{StaticResource BorderColor}"
+                        BorderThickness="1"
+                        CornerRadius="10">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"/>
+
+                            <ColumnDefinition Width="Auto"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="Auto"/>
+
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Material"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,15"/>
+
+                        <TextBox x:Name="txtMaterialNombre"
+                                 Grid.Row="1"
+                                 Margin="0,0,10,0"
+                                 Tag="Material"
+                                 IsReadOnly="True"
+                                 Style="{StaticResource ModernTextBox}"/>
+
+                        <Button Grid.RowSpan="2"
+                                Grid.Column="1"
+                                Width="160"
+                                Content="Buscar Material"
+                                Style="{StaticResource PrimaryButton}"
+                                Click="BtnSearchMaterial_Click"/>
+
+                    </Grid>
+
+                </Border>
+
+                <!-- CÁLCULO -->
+
+                <Border Grid.Row="3"
+                        Padding="15"
+                        BorderBrush="{StaticResource BorderColor}"
+                        BorderThickness="1"
+                        CornerRadius="10">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="Auto"/>
+
+                            <RowDefinition Height="Auto"/>
+
+                            <RowDefinition Height="Auto"/>
+
+                            <RowDefinition Height="Auto"/>
+
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Cálculo"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,15"/>
+
+                        <TextBox x:Name="txtCantidad"
+                                 Grid.Row="1"
+                                 Tag="Cantidad de Excavaciones"
+                                 Style="{StaticResource ModernTextBox}"
+                                 TextChanged="TxtCantidad_TextChanged"/>
+
+                        <TextBox x:Name="txtVolumenTotal"
+                                 Grid.Row="2"
+                                 Margin="0,10,0,0"
+                                 Tag="Volumen Total"
+                                 IsReadOnly="True"
+                                 Style="{StaticResource ModernTextBox}"/>
+
+                        <TextBox x:Name="txtPrecioUnidad"
+                                 Grid.Row="3"
+                                 Margin="0,10,0,0"
+                                 Tag="Precio Unidad"
+                                 IsReadOnly="True"
+                                 Style="{StaticResource ModernTextBox}"/>
+
+                        <TextBox x:Name="txtSubtotal"
+                                 Grid.Row="4"
+                                 Margin="0,10,0,0"
+                                 Tag="Subtotal"
+                                 IsReadOnly="True"
+                                 Style="{StaticResource ModernTextBox}"/>
+
+                    </Grid>
+
+                </Border>
+
+                <!-- BOTONES -->
+
+                <StackPanel Grid.Row="4"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0,20,0,0">
+
+                    <Button Content="Cancelar"
+                            Width="120"
+                            Style="{StaticResource SecondaryButton}"
+                            Click="BtnCancel_Click"/>
+
+                    <Button Content="Agregar"
+                            Width="120"
+                            Margin="10,0,0,0"
+                            Style="{StaticResource PrimaryButton}"
+                            Click="BtnAdd_Click"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</Window>
