@@ -27,7 +27,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
     {
         UsuarioController usuarioController = new UsuarioController();
 
-        private Cliente? clienteSeleccionado;
+        private Cliente? clienteSelected;
         public AddUsuarioWindow()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
         {
             try
             {
-                if (clienteSeleccionado == null)
+                if (clienteSelected == null)
                 {
                     AlertWindow alert = new AlertWindow("Información", "Debe seleccionar un cliente.", AlertType.Info);
 
@@ -51,11 +51,11 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
 
                 Usuario usuario = new Usuario(
                     Guid.NewGuid(),
-                    clienteSeleccionado.Nombre,
-                    clienteSeleccionado.Identificacion,
-                    clienteSeleccionado.Telefono,
-                    clienteSeleccionado.Correo,
-                    clienteSeleccionado.Identificacion,
+                    clienteSelected.Nombre,
+                    clienteSelected.Identificacion,
+                    clienteSelected.Telefono,
+                    clienteSelected.Correo,
+                    clienteSelected.Identificacion,
                     String.Empty,
                     true,
                     RolUsuario.Operador
@@ -95,15 +95,15 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Usuarios
 
             if (result == true)
             {
-                clienteSeleccionado = searchClienteWindow.SelectedCliente;
+                clienteSelected = searchClienteWindow.SelectedCliente;
 
-                txtNombre.Text = clienteSeleccionado.Nombre;
-
-
-                txtIdentificacion.Text = clienteSeleccionado.Identificacion;
+                txtNombre.Text = clienteSelected.Nombre;
 
 
-                txtUsername.Text = clienteSeleccionado.Identificacion;
+                txtIdentificacion.Text = clienteSelected.Identificacion;
+
+
+                txtUsername.Text = clienteSelected.Identificacion;
 
             }
         }

@@ -9,9 +9,9 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Cotizaciones
     /// </summary>
     public partial class AddCotizacionWindow : Window
     {
-        private Cliente? clienteSeleccionado;
+        private Cliente? clienteSelected; 
 
-        private Material? materialSeleccionado;
+        private Material? materialSelected;
 
         public AddCotizacionWindow()
         {
@@ -26,15 +26,15 @@ namespace WpfAppProyectoIntegrador2026_1.Views.Cotizaciones
 
             if (result == true)
             {
-                clienteSeleccionado = searchClienteWindow.SelectedCliente;
+                clienteSelected = searchClienteWindow.SelectedCliente;
 
-                txtClienteNombre.Text = clienteSeleccionado.Nombre;
+                txtClienteNombre.Text = clienteSelected.Nombre;
 
-                txtClienteIdentificacion.Text = clienteSeleccionado.Identificacion;
+                txtClienteIdentificacion.Text = clienteSelected.Identificacion;
 
-                txtClienteTelefono.Text = clienteSeleccionado.Telefono;
+                txtClienteTelefono.Text = clienteSelected.Telefono;
 
-                txtClienteCorreo.Text = clienteSeleccionado.Correo;
+                txtClienteCorreo.Text = clienteSelected.Correo;
 
             }
 
